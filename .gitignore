@@ -7,6 +7,9 @@
 # Ignore bundler config.
 /.bundle
 
+# Ignore production data sync directory
+/db/data
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
@@ -18,7 +21,7 @@
 !/tmp/pids/
 !/tmp/pids/.keep
 
-
+# Ignore asset-pipeline
 /public/assets
 
 # Ignore master key for decrypting credentials and more.
