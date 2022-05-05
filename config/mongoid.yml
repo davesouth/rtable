@@ -1,0 +1,30 @@
+production:
+  clients:
+    default:
+      database: spherus_live
+      hosts:
+        - localhost:27017
+      options:
+        auth_source: admin
+        user: <%= Rails.application.credentials.mongoid_user %>
+        password: <%= Rails.application.credentials.mongoid_pass %>
+        roles:
+          - 'dbOwner'
+
+development:
+  clients:
+    default:
+      database: spherus_dev
+      hosts:
+        - localhost:27017
+
+test:
+  clients:
+    default:
+      database: spherus_test
+      hosts:
+        - localhost:27017
+      options:
+        read:
+          mode: :primary
+        max_pool_size: 1
