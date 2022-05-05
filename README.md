@@ -1,24 +1,28 @@
-# README
+# Spherus
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Spherus customer relationship manager (CRM) is a "sphere for us."
 
-Things you may want to cover:
+STATUS: JUST STARTED
 
-* Ruby version
+The goal is to create a simple CRM based on the idea of nouns and verbs. A noun is a [person, place, or thing](https://www.youtube.com/watch?v=h0m89e9oZko) — or idea. We call nouns cards which can represent people, organizations, structures, equipment, inventory.
 
-* System dependencies
+A [verb is an action](https://www.youtube.com/watch?v=5EicxQxzsW4) based around a ticket system.
 
-* Configuration
+We connect tickets with cards to create a graph of information.
 
-* Database creation
+## Requirements
 
-* Database initialization
+- Ruby
+- Rails
+- Mongoid
+- Elasticsearch (maybe)
 
-* How to run the test suite
+## [MIT License](https://opensource.org/licenses/MIT)
 
-* Services (job queues, cache servers, search engines, etc.)
+Copyright 2022 Dave South
 
-* Deployment instructions
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-* ...
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
