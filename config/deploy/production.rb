@@ -7,64 +7,55 @@ set :server, 'spherus.production'
 # Server roles
 server fetch(:server), roles: %w[web app db]
 
-# server-based syntax
-# ======================
-# Defines a single server with a list of roles and multiple properties.
-# You can define all roles on a single server, or split them:
+# Server data utilities
+namespace :data do
+  server_ssh_name = fetch(:server)
+  server_data_dir = shared_path.join('data')
+  local_data_dir = 'db/data'
 
-# server "example.com", user: "deploy", roles: %w{app db web}, my_property: :my_value
-# server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
-# server "db.example.com", user: "deploy", roles: %w{db}
+  desc 'Synchronize production data with local environment'
+  task :sync do
+    run_locally do
+      Rake::Task['data:dump'].invoke
+      Rake::Task['data:download'].invoke
+      Rake::Task['data:load'].invoke
+    end
+  end
 
+  desc 'Dump production database on server'
+  task :dump do
+    on roles(:db) do |host|
+      within release_path do
+        with rails_env: :production, path: '/usr/local/bin:$PATH' do
+          execute :mkdir, "-p #{server_data_dir}"
+          rake "data:dump DIR=#{server_data_dir}"
+        end
+      end
+    end
+  end
 
+  desc 'Download production database to local environment'
+  task :download do
+    run_locally do
+      system "rsync -rtvh #{server_ssh_name}:#{server_data_dir}/ #{local_data_dir}"
+    end
+  end
 
-# role-based syntax
-# ==================
+  desc 'Load local data into development database'
+  task :load do
+    run_locally do
+      system "rake data:load DIR=#{local_data_dir}"
+    end
+  end
 
-# Defines a role with one or multiple servers. The primary server in each
-# group is considered to be the first unless any hosts have the primary
-# property set. Specify the username and a domain or IP for the server.
-# Don't use `:all`, it's a meta role.
+end
 
-# role :app, %w{deploy@example.com}, my_property: :my_value
-# role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
-# role :db,  %w{deploy@example.com}
-
-
-
-# Configuration
-# =============
-# You can set any configuration variable like in config/deploy.rb
-# These variables are then only loaded and set in this stage.
-# For available Capistrano configuration variables see the documentation page.
-# http://capistranorb.com/documentation/getting-started/configuration/
-# Feel free to add new variables to customise your setup.
-
-
-
-# Custom SSH Options
-# ==================
-# You may pass any option but keep in mind that net/ssh understands a
-# limited set of options, consult the Net::SSH documentation.
-# http://net-ssh.github.io/net-ssh/classes/Net/SSH.html#method-c-start
-#
-# Global options
-# --------------
-#  set :ssh_options, {
-#    keys: %w(/home/user_name/.ssh/id_rsa),
-#    forward_agent: false,
-#    auth_methods: %w(password)
-#  }
-#
-# The server-based syntax can be used to override options:
-# ------------------------------------
-# server "example.com",
-#   user: "user_name",
-#   roles: %w{web app},
-#   ssh_options: {
-#     user: "user_name", # overrides user setting above
-#     keys: %w(/home/user_name/.ssh/id_rsa),
-#     forward_agent: false,
-#     auth_methods: %w(publickey password)
-#     # password: "please use keys"
-#   }
+# Autorun data tasks
+desc 'Synchronize production data with local environment'
+task :data do
+  run_locally do
+    Rake::Task['data:dump'].invoke
+    Rake::Task['data:download'].invoke
+    Rake::Task['data:load'].invoke
+  end
+end
