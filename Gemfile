@@ -40,6 +40,10 @@ gem 'bootstrap', '~> 5.1'
 # Enable SASS support
 # gem 'sassc-rails'
 
+# Software monitor
+gem 'sentry-ruby'
+gem 'sentry-rails'
+
 group :development, :test do
   # Rspec works best for Mongoid [https://github.com/rspec/rspec-rails]
   gem 'rspec-rails', '6.0.0.rc1'
