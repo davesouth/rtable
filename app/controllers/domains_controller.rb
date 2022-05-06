@@ -1,7 +1,4 @@
-class DomainsController < ApplicationController
-  # Basic authentication for Omni administration section
-  http_basic_authenticate_with name: Rails.application.credentials.basic_user, password: Rails.application.credentials.basic_pass
-
+class DomainsController < AdminController
   before_action :set_domain, only: %i[ show edit update destroy ]
 
   # GET /domains or /domains.json

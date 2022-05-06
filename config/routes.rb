@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  constraints subdomain: 'domains' do
+  constraints subdomain: 'admin' do
+    root to: redirect('/domains')
     resources :domains
   end
 
