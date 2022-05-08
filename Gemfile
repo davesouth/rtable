@@ -37,6 +37,9 @@ gem 'bootsnap', require: false
 # Bootstrap 5 [https://github.com/twbs/bootstrap-rubygem]
 gem 'bootstrap', '~> 5.1'
 
+# HAML template language [https://haml.info/docs.html]
+gem 'haml'
+
 # Enable SASS support
 # gem 'sassc-rails'
 

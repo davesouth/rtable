@@ -1,0 +1,29 @@
+= title "Domain: #{@domain.name}"
+
+%p
+  «
+  = link_to 'Domains', [Domain]
+  \/
+  = link_to 'Edit', [:edit, @domain]
+
+%p
+  %b Name
+  %br
+  = @domain.name
+
+%p
+  %b Slug
+  %br
+  = @domain.slug
+
+%p
+  = button_to "Destroy this domain", @domain, method: :delete
+
+-# <%= render @domain %>
+
+-# <div>
+-#   <%= link_to "Edit this domain", edit_domain_path(@domain) %> |
+-#   <%= link_to "Back to domains", domains_path %>
+
+-#   <%= button_to "Destroy this domain", @domain, method: :delete %>
+-# </div>
