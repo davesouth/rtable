@@ -2,9 +2,9 @@
 
 %p
   «
-  = link_to 'Domains', [Domain]
+  = link_to 'domains', :warden_domains
   \/
-  = link_to 'Edit', [:edit, @domain]
+  = link_to 'edit', [:edit, @domain]
 
 %p
   %b Name
@@ -15,9 +15,6 @@
   %b Slug
   %br
   = @domain.slug
-
-%p
-  = button_to "Destroy this domain", @domain, method: :delete
 
 -# <%= render @domain %>
 
