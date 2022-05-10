@@ -62,6 +62,9 @@ group :development do
   # Use the Puma web server [https://github.com/puma/puma]
   gem 'puma', '~> 5.0'
 
+  # HAML template generators [https://github.com/haml/haml-rails]
+  gem 'haml-rails'
+
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem 'rack-mini-profiler'
 
