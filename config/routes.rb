@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  namespace :warden do
+  scope :warden do
     resources :accounts
     root to: redirect('/warden/accounts')
   end

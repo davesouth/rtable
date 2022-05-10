@@ -1,11 +1,14 @@
-class Warden::Account
+class Account
   include Mongoid::Document
   include Mongoid::Timestamps
 
   # Constants
   RESERVED = %w[warden]
 
-  # Field schema
+  # Relations
+  has_many :categories
+
+  # Schema
   field :slug, type: String
   field :name, type: String
 

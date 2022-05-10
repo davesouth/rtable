@@ -1,4 +1,4 @@
-class CategoriesController < ApplicationController
+class CategoriesController < AccountableController
   before_action :set_category, only: %i[ show edit update destroy ]
 
   # GET /categories or /categories.json
@@ -12,7 +12,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories/new
   def new
-    @category = Category.new
+    @category = @account.categories.build
   end
 
   # GET /categories/1/edit
@@ -65,6 +65,6 @@ class CategoriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def category_params
-      params.require(:category).permit(:name, :slug)
+      params.require(:category).permit(:account_id, :name, :slug)
     end
 end

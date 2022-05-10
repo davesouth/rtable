@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Warden::Account, type: :model do
+RSpec.describe Account, type: :model do
   describe 'schema' do
     it { is_expected.to have_field(:name).of_type(String) }
     it { is_expected.to have_field(:slug).of_type(String) }
