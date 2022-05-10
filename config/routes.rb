@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
 
   namespace :warden do
-    resources :domains
-    root to: redirect('/warden/domains')
+    resources :accounts
+    root to: redirect('/warden/accounts')
   end
 
-  scope path: ':domain_id', as: 'domain' do
+  scope path: ':account_id', as: 'account' do
     resources :categories
   end
 

@@ -1,4 +1,4 @@
-class Warden::Domain
+class Warden::Account
   include Mongoid::Document
   include Mongoid::Timestamps
 
