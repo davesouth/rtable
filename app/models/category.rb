@@ -9,4 +9,9 @@ class Category
   field :name, type: String
   field :slug, type: String
 
+  # Override URL param
+  def to_param
+    slug
+  end
+
 end
