@@ -60,7 +60,7 @@ class Warden::AccountsController < Warden::AdminController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_account
-      @account = Warden::Account.find(params[:id])
+      @account = Warden::Account.find_by(slug: params[:id])
     end
 
     # Only allow a list of trusted parameters through.

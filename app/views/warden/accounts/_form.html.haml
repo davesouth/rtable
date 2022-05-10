@@ -8,10 +8,10 @@
         - account.errors.each do |error|
           %li= error.full_message
   %p
+    = form.label :slug, style: 'display: block'
+    = form.text_field :slug, { disabled: @account.persisted? }
+  %p
     = form.label :name, style: 'display: block'
     = form.text_field :name
-  %p
-    = form.label :slug, style: 'display: block'
-    = form.text_field :slug
   %p
     = form.submit
