@@ -8,6 +8,7 @@ class Account
   # Relations
   has_many :categories
   has_many :tickets
+  has_many :cards
 
   # Schema
   field :slug, type: String

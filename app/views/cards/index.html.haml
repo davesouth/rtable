@@ -1,0 +1,23 @@
+%h1 Listing cards
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Slug
+      %th Kind
+      %th
+      %th
+
+  %tbody
+    - @cards.each do |card|
+      %tr
+        %td= card.name
+        %td= card.slug
+        %td= card.kind
+        %td= link_to 'Show', [@account, card]
+        %td= link_to 'Edit', [:edit, @account, card]
+
+%br
+
+= link_to 'New card', [:new, @account, :card]

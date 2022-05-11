@@ -1,0 +1,9 @@
+%h1 Editing card
+
+= render 'form'
+
+= link_to 'Show', [@account, @card]
+\|
+= link_to 'Back', [@account, :cards]
+
+%p= button_to 'Destroy', [@account, @card], method: :delete, data: { confirm: 'Are you sure?' }

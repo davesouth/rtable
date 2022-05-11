@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @card.name
+%p
+  %b Slug:
+  = @card.slug
+%p
+  %b Kind:
+  = @card.kind
+
+= link_to 'Edit', [:edit, @account, @card]
+\|
+= link_to 'Back', [@account, :cards]

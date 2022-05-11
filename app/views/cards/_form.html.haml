@@ -1,0 +1,19 @@
+= form_for [@account, @card] do |f|
+  - if @card.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@card.errors.count, "error")} prohibited this card from being saved:"
+      %ul
+        - @card.errors.full_messages.each do |message|
+          %li= message
+
+  %p.field
+    = f.label :name
+    = f.text_field :name
+  %p.field
+    = f.label :slug
+    = f.text_field :slug
+  %p.field
+    = f.label :kind
+    = f.text_field :kind
+  %p.actions
+    = f.submit 'Save'

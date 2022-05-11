@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   scope path: ':account_id', as: 'account' do
     resources :categories
     resources :tickets
+    resources :cards
   end
 
 

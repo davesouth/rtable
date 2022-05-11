@@ -4,6 +4,7 @@ RSpec.describe Account, type: :model do
   describe 'relations' do
     it { is_expected.to have_many(:categories) }
     it { is_expected.to have_many(:tickets) }
+    it { is_expected.to have_many(:cards) }
   end
 
   describe 'schema' do
