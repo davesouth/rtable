@@ -4,6 +4,7 @@ class Category
 
   # Constants
   KINDS = %w[cards tickets]
+  RESERVED = %w[tmp]
 
   # Relations
   belongs_to :account
@@ -21,6 +22,7 @@ class Category
     presence: true
   validates :slug,
     presence: true,
+    exclusion: RESERVED,
     uniqueness: {
       scope: 'account_id',
       case_sensitive: false },

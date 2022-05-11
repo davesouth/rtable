@@ -6,9 +6,9 @@ RSpec.describe Card, type: :model do
   end
 
   describe 'schema' do
+    it { is_expected.to have_field(:name).of_type(String) }
     it { is_expected.to have_field(:slug).of_type(String) }
     it { is_expected.to have_field(:kind).of_type(String) }
-    it { is_expected.to have_field(:name).of_type(String) }
   end
 
   describe 'indexes' do
