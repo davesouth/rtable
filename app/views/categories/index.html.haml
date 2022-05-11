@@ -5,6 +5,7 @@
     %tr
       %th Name
       %th Slug
+      %th Kind
       %th
       %th
       %th
@@ -14,6 +15,7 @@
       %tr
         %td= category.name
         %td= category.slug
+        %td= category.kind
         %td= link_to 'Show', [@account, category]
         %td= link_to 'Edit', [:edit, @account, category]
         %td= button_to 'Destroy', [@account, category], method: :delete, data: { confirm: 'Are you sure?' }

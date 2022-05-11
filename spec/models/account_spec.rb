@@ -1,9 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe Account, type: :model do
+  describe 'relations' do
+    it { is_expected.to have_many(:categories) }
+  end
+
   describe 'schema' do
     it { is_expected.to have_field(:name).of_type(String) }
     it { is_expected.to have_field(:slug).of_type(String) }
+  end
+
+  describe 'indexes' do
+    it { is_expected.to have_index_for(slug: 1) }
   end
 
   describe 'validations' do

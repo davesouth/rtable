@@ -6,11 +6,14 @@
         - @category.errors.full_messages.each do |message|
           %li= message
 
-  .field
+  %p.field
     = f.label :name
     = f.text_field :name
-  .field
+  %p.field
     = f.label :slug
     = f.text_field :slug
-  .actions
+  %p.field
+    = f.label :kind
+    = f.select :kind, Category::KINDS, include_blank: true
+  %p.actions
     = f.submit 'Save'

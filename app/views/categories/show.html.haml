@@ -6,6 +6,9 @@
 %p
   %b Slug:
   = @category.slug
+%p
+  %b Kind:
+  = @category.kind
 
 = link_to 'Edit', [:edit, @account, @category]
 \|
