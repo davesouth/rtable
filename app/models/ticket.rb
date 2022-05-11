@@ -1,9 +1,6 @@
-class Category
+class Ticket
   include Mongoid::Document
   include Mongoid::Timestamps
-
-  # Constants
-  KINDS = %w[cards tickets]
 
   # Relations
   belongs_to :account
@@ -20,16 +17,7 @@ class Category
   validates :name,
     presence: true
   validates :slug,
-    presence: true,
-    uniqueness: {
-      scope: 'account_id',
-      case_sensitive: false },
-    format: {
-      with: /\A[a-z0-9-]+\z/,
-      message: 'only allows lowercase letters, numbers and hyphens' }
-  validates :kind,
-    presence: true,
-    inclusion: KINDS
+    presence: true
 
   # Override URL param
   def to_param

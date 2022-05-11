@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Account, type: :model do
   describe 'relations' do
     it { is_expected.to have_many(:categories) }
+    it { is_expected.to have_many(:tickets) }
   end
 
   describe 'schema' do

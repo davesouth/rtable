@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @ticket.name
+%p
+  %b Slug:
+  = @ticket.slug
+%p
+  %b Kind:
+  = @ticket.kind
+
+= link_to 'Edit', [:edit, @account, @ticket]
+\|
+= link_to 'Back', [@account, :tickets]

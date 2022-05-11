@@ -1,0 +1,23 @@
+%h1 Listing tickets
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Slug
+      %th Kind
+      %th
+      %th
+
+  %tbody
+    - @tickets.each do |ticket|
+      %tr
+        %td= ticket.name
+        %td= ticket.slug
+        %td= ticket.kind
+        %td= link_to 'Show', [@account, ticket]
+        %td= link_to 'Edit', [:edit, @account, ticket]
+
+%br
+
+= link_to 'New Ticket', [:new, @account, :ticket]

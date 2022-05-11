@@ -1,0 +1,9 @@
+%h1 Editing ticket
+
+= render 'form'
+
+= link_to 'Show', [@account, @ticket]
+\|
+= link_to 'Back', [@account, :tickets]
+
+%p= button_to 'Destroy', [@account, @ticket], method: :delete, data: { confirm: 'Are you sure?' }
