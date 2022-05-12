@@ -1,5 +1,5 @@
 class DomainsController < AdminController
-  before_action :set_domain, only: %i[ show edit update destroy ]
+  before_action :set_domain, only: %i[ show edit update delete destroy ]
 
   def index
     @domains = Domain.all
@@ -35,6 +35,9 @@ class DomainsController < AdminController
         format.html { render :edit, status: :unprocessable_entity }
       end
     end
+  end
+
+  def delete
   end
 
   def destroy

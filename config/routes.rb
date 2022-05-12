@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   # Set subdomain admin route in credentials
   constraints subdomain: Rails.application.credentials.admin_slug do
     root to: redirect('/domains')
-    resources :domains
+    resources :domains do
+      get 'delete', on: :member
+    end
   end
 
   # scope path: ':account_id', as: 'account' do
