@@ -1,23 +1,16 @@
 class Card
   include Mongoid::Document
   include Mongoid::Timestamps
-
-  # Relations
-  belongs_to :account
+  include Domainable
 
   # Schema
   field :name, type: String
   field :slug, type: String
   field :kind, type: String
 
-  # Index
-  index account_id: 1, slug: 1
-
   # Validations
-  validates :name,
-    presence: true
-  validates :slug,
-    presence: true
+  validates :name, presence: true
+  validates :slug, presence: true, uniqueness: { scope: 'domain_id', case_sensitive: false },format: { with: /\A[a-z0-9-]+\z/, message: 'only allows lowercase letters, numbers and hyphens' }
 
   # Override URL param
   def to_param
