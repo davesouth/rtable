@@ -30,7 +30,7 @@ class TicketsController < DomainableController
   def update
     respond_to do |format|
       if @ticket.update(ticket_params)
-        format.html { redirect_to [@account, @ticket], notice: 'Ticket successfully updated.' }
+        format.html { redirect_to @ticket, notice: 'Ticket successfully updated.' }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end

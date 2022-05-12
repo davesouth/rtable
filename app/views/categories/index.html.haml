@@ -16,10 +16,10 @@
         %td= category.name
         %td= category.slug
         %td= category.kind
-        %td= link_to 'Show', [@account, category]
-        %td= link_to 'Edit', [:edit, @account, category]
-        %td= button_to 'Destroy', [@account, category], method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Show', category
+        %td= link_to 'Edit', [:edit, category]
+        %td= button_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
 
-= link_to 'New Category', [:new, @account, :category]
+= link_to 'New Category', [:new_category]

@@ -30,7 +30,7 @@ class CardsController < DomainableController
   def update
     respond_to do |format|
       if @card.update(card_params)
-        format.html { redirect_to [@account, @card], notice: "card was successfully updated." }
+        format.html { redirect_to @card, notice: 'card successfully updated.' }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -41,7 +41,7 @@ class CardsController < DomainableController
     @card.destroy
 
     respond_to do |format|
-      format.html { redirect_to [@account, :cards], notice: "card was successfully destroyed." }
+      format.html { redirect_to :cards, notice: 'card successfully destroyed.' }
     end
   end
 
