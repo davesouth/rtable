@@ -1,18 +1,10 @@
-class Account
+class Domain
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  # Constants
-  RESERVED = %w[warden]
-
-  # Relations
-  has_many :categories
-  has_many :tickets
-  has_many :cards
-
   # Schema
-  field :slug, type: String
   field :name, type: String
+  field :slug, type: String
 
   # Index
   index slug: 1
@@ -22,7 +14,6 @@ class Account
     presence: true
   validates :slug,
     presence: true,
-    exclusion: RESERVED,
     uniqueness: { case_sensitive: false },
     format: {
       with: /\A[a-z0-9-]+\z/,
