@@ -1,10 +1,6 @@
 class CategoriesController < AccountableController
-  # @account set in accountable controller
-
-  # Set @category
   before_action :set_category, only: %i[ show edit update destroy ]
 
-  # GET /categories or /categories.json
   def index
     @categories = @account.categories.all
   end

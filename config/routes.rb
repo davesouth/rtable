@@ -9,10 +9,10 @@ Rails.application.routes.draw do
   end
 
   resources :cards
+  resources :tickets
 
   # scope path: ':account_id', as: 'account' do
   #   resources :categories
-  #   resources :tickets
   # end
 
 

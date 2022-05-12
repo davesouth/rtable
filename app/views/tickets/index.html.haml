@@ -15,9 +15,9 @@
         %td= ticket.name
         %td= ticket.slug
         %td= ticket.kind
-        %td= link_to 'Show', [@account, ticket]
-        %td= link_to 'Edit', [:edit, @account, ticket]
+        %td= link_to 'Show', ticket
+        %td= link_to 'Edit', [:edit, ticket]
 
 %br
 
-= link_to 'New Ticket', [:new, @account, :ticket]
+= link_to 'New Ticket', [:new_ticket]

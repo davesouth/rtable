@@ -2,8 +2,8 @@
 
 = render 'form'
 
-= link_to 'Show', [@account, @ticket]
+= link_to 'Show', @ticket
 \|
-= link_to 'Back', [@account, :tickets]
+= link_to 'Back', :tickets
 
-%p= button_to 'Destroy', [@account, @ticket], method: :delete, data: { confirm: 'Are you sure?' }
+%p= button_to 'Destroy', @ticket, method: :delete, data: { confirm: 'Are you sure?' }
