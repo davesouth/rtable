@@ -15,7 +15,7 @@ RSpec.describe Card, type: :model do
     let(:card) { Card.find_or_create_unpublished }
     it { expect(card).to be_unpublished }
     it { expect(card.name).to be_blank }
-    it { expect(card.slug).to be_blank }
+    it { expect(card.slug).to match /tmp-\d+/ }
 
     context 'reuse unpublished card' do
       let(:card2) { Card.find_or_create_unpublished }

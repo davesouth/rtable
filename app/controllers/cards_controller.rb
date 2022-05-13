@@ -2,30 +2,22 @@ class CardsController < DomainableController
   before_action :set_card, only: %i[ show edit update destroy ]
 
   def index
-    @cards = Card.all
+    @cards = Card.published
   end
 
   def show
   end
 
   def new
-    @card = Card.find_or_create_temp
+    @card = Card.find_or_create_unpublished
   end
 
   def edit
   end
 
-  def create
-    @card = Card.new(card_params)
-
-    respond_to do |format|
-      if @card.save
-        format.html { redirect_to @card, notice: 'card successfully created.' }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-      end
-    end
-  end
+  # Unused
+  # def create
+  # end
 
   def update
     respond_to do |format|
