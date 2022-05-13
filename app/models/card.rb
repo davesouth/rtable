@@ -6,6 +6,7 @@ class Card
   # Card name/title
   field :name, type: String
 
+  ## Slug logic (to be extracted)
 
   # Initialize slug with random temporary id
   # Replace when published with generated id
@@ -16,27 +17,37 @@ class Card
   field :published_at, type: Time
 
   # Scopes
-  scope :unpublished, ->{ where(published_at: nil) }
+  scope :draft, ->{ where(published_at: nil) }
   scope :published, ->{ gt(published_at: Time.now.utc) }
 
-  # Publication question
-  def unpublished?
-    published_at.blank?
+  # Validations
+  validates :slug, presence: true
+
+  ## Class Methods
+
+  # Create draft card
+  def self.find_or_create_draft
+    draft.first_or_create
   end
+
+  ## Instance Methods
 
   # Override URL param
   def to_param
     slug
   end
 
-  ## Class Methods
-
-  # Create unpublished card
-  def self.find_or_create_unpublished
-    unpublished.first_or_create
+  # Publication question
+  def draft?
+    published_at.blank?
   end
 
-  # Find or create unpublished record
+  def published?
+    published_at.present?
+  end
+
+
+
 
   # Validations
   # validates :name, presence: true

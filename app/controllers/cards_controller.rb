@@ -9,7 +9,7 @@ class CardsController < DomainableController
   end
 
   def new
-    @card = Card.find_or_create_unpublished
+    @card = Card.find_or_create_draft
   end
 
   def edit
@@ -44,7 +44,7 @@ class CardsController < DomainableController
     end
 
     def card_params
-      params.require(:card).permit(:name, :slug, :kind)
+      params.require(:card).permit(:name)
     end
 
 end

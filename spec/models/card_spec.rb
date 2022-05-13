@@ -11,14 +11,20 @@ RSpec.describe Card, type: :model do
     it { is_expected.to have_field(:published_at).of_type(Time) }
   end
 
-  describe 'card unpublished/published' do
-    let(:card) { Card.find_or_create_unpublished }
-    it { expect(card).to be_unpublished }
+  describe 'validations' do
+    it { is_expected.to validate_presence_of(:slug) }
+  end
+
+
+  describe 'card draft/published' do
+    let(:card) { Card.find_or_create_draft }
+    it { expect(card).to be_draft }
+    it { expect(card).to_not be_published }
     it { expect(card.name).to be_blank }
     it { expect(card.slug).to match /tmp-\d+/ }
 
-    context 'reuse unpublished card' do
-      let(:card2) { Card.find_or_create_unpublished }
+    context 'reuse draft card' do
+      let(:card2) { Card.find_or_create_draft }
       it { expect(card2).to match card }
       it { expect(card2.id).to eq card.id }
     end

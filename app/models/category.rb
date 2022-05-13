@@ -4,7 +4,7 @@ class Category
   include Domainable
 
   # Constants
-  KINDS = %w[card ticket]
+  KINDS = %w[cards tickets]
 
   # Schema
   field :name, type: String
