@@ -4,8 +4,7 @@ class Category
   include Domainable
 
   # Constants
-  KINDS = %w[cards tickets]
-  RESERVED = %w[tmp]
+  KINDS = %w[card ticket]
 
   # Schema
   field :name, type: String
@@ -14,7 +13,7 @@ class Category
 
   # Validations
   validates :name, presence: true
-  validates :slug, presence: true, exclusion: RESERVED, uniqueness: { scope: 'domain_id', case_sensitive: false }, format: { with: /\A[a-z0-9-]+\z/, message: 'only allows lowercase letters, numbers and hyphens' }
+  validates :slug, presence: true, uniqueness: { scope: 'domain_id', case_sensitive: false }, format: { with: /\A[a-z0-9-]+\z/, message: 'only allows lowercase letters, numbers and hyphens' }
   validates :kind, presence: true, inclusion: KINDS
 
   # Override URL param

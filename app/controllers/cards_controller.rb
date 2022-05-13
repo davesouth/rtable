@@ -9,7 +9,7 @@ class CardsController < DomainableController
   end
 
   def new
-    @card = Card.new
+    @card = Card.find_or_create_temp
   end
 
   def edit
