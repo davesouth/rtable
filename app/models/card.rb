@@ -8,6 +8,9 @@ class Card
 
   ## Slug logic (to be extracted)
 
+  # Select category
+  belongs_to :category, optional: true
+
   # Initialize slug with random temporary id
   # Replace when published with generated id
   field :slug, type: String, default: ->{ "tmp-#{(rand*10000000000).to_i}" }

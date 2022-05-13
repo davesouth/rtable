@@ -15,6 +15,10 @@ RSpec.describe Card, type: :model do
     it { is_expected.to validate_presence_of(:slug) }
   end
 
+  describe 'associations' do
+    it { is_expected.to belong_to(:category).with_optional }
+  end
+
 
   describe 'card draft/published' do
     let(:card) { Card.find_or_create_draft }
