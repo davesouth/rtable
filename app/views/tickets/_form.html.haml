@@ -10,10 +10,7 @@
     = f.label :name
     = f.text_field :name
   %p.field
-    = f.label :slug
-    = f.text_field :slug
-  %p.field
-    = f.label :kind
-    = f.text_field :kind
+    = f.label :category_id
+    = f.select :category_id, Category.tickets.collect{ |c| [c.name, c.id] }, prompt: 'Select category…'
   %p.actions
     = f.submit 'Save'

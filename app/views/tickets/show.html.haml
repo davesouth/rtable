@@ -6,9 +6,11 @@
 %p
   %b Slug:
   = @ticket.slug
-%p
-  %b Kind:
-  = @ticket.kind
+
+- if @ticket.category_id.present?
+  %p
+    %b Category:
+    = @ticket.category.name
 
 = link_to 'Edit', [:edit, @ticket]
 \|

@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   # Main resources
   resources :categories
   resources :cards, concerns: [:sluggable]
-  resources :tickets
+  resources :tickets, concerns: [:sluggable]
 
   # Root path redirects to tickets, for now
   root to: redirect('/tickets')

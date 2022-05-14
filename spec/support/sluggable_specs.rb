@@ -25,7 +25,7 @@ shared_examples_for 'sluggable' do
 
 
 
-  describe 'draft card' do
+  describe 'draft model' do
     let(:model) { described_class.find_or_create_draft }
 
     context 'when draft model' do

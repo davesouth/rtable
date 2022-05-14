@@ -23,6 +23,7 @@ class Category
 
   # Scopes
   scope :cards, ->{ where(kind: 'cards') }
+  scope :tickets, ->{ where(kind: 'tickets') }
 
   # Override URL param
   def to_param
