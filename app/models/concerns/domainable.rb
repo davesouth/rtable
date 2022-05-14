@@ -7,9 +7,6 @@ module Domainable
 
     # Scope all model requests model by current domain id
     default_scope ->{ where(domain_id: Domain.current.id) }
-
-    # Add most common index of domain and slug
-    index domain_id: 1, slug: 1
   end
 
 end

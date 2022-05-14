@@ -18,6 +18,13 @@ shared_examples_for 'sluggable' do
     it { is_expected.to validate_format_of(:slug).not_to_allow('Invalid slug') }
   end
 
+  describe 'indexes' do
+    it { is_expected.to have_index_for(domain_id: 1, slug: 1) }
+    it { is_expected.to have_index_for(domain_id: 1, published_at: 1) }
+  end
+
+
+
   describe 'draft card' do
     let(:model) { described_class.find_or_create_draft }
 

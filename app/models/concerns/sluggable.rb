@@ -27,6 +27,11 @@ module Sluggable
     validates :name, presence: true, if: :published?
     validates :category, presence: true, if: :published?
 
+    # Add most common individual index
+    index domain_id: 1, slug: 1
+    # Add most common list index
+    index domain_id: 1, published_at: 1
+
   end
 
   class_methods do
