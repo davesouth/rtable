@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
+  # Concerns
+  concern :sluggable do
+    patch 'publish', on: :member
+  end
+
   # Set subdomain admin route in credentials
   constraints subdomain: Rails.application.credentials.admin_slug do
     get '/', to: redirect('/domains')
@@ -11,7 +16,7 @@ Rails.application.routes.draw do
 
   # Main resources
   resources :categories
-  resources :cards
+  resources :cards, concerns: [:sluggable]
   resources :tickets
 
   # Root path redirects to tickets, for now

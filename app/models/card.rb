@@ -21,10 +21,12 @@ class Card
 
   # Scopes
   scope :draft, ->{ where(published_at: nil) }
-  scope :published, ->{ gt(published_at: Time.now.utc) }
+  scope :published, ->{ lt(published_at: Time.now.utc) }
 
   # Validations
-  validates :slug, presence: true
+  validates :slug, presence: true, uniqueness: { scope: 'domain_id', case_sensitive: false },format: { with: /\A[a-z0-9-]+\z/, message: 'only allows lowercase letters, numbers and hyphens' }
+  validates :name, presence: true, if: :published?
+  validates :category, presence: true, if: :published?
 
   ## Class Methods
 
@@ -48,13 +50,5 @@ class Card
   def published?
     published_at.present?
   end
-
-
-
-
-  # Validations
-  # validates :name, presence: true
-
-  # validates :slug, presence: true, uniqueness: { scope: 'domain_id', case_sensitive: false },format: { with: /\A[a-z0-9-]+\z/, message: 'only allows lowercase letters, numbers and hyphens' }
 
 end
