@@ -8,7 +8,8 @@ shared_examples_for 'sluggable' do
     it { is_expected.to have_field(:name).of_type(String) }
     it { is_expected.to have_field(:slug).of_type(String) }
     it { is_expected.to have_field(:num).of_type(Integer).with_default_value_of(0) }
-    it { is_expected.to have_field(:published_at).of_type(Time) }
+    # it { is_expected.to have_field(:published_at).of_type(Time) }
+    it { is_expected.to have_field(:p_at).with_alias(:published_at).of_type(Time) }
   end
 
   describe 'validations' do

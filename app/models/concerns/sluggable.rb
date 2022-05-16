@@ -14,7 +14,7 @@ module Sluggable
     # Increasing numerical ID suffix
     field :num, type: Integer, default: 0
     # Set published_at to make records public
-    field :published_at, type: Time
+    field :p_at, as: :published_at, type: Time
 
     # Scopes
     scope :draft, ->{ where(published_at: nil) }

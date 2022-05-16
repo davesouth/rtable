@@ -1,6 +1,6 @@
 class Category
   include Mongoid::Document
-  include Mongoid::Timestamps
+  include Mongoid::Timestamps::Short
   include Domainable
 
   # Type of models that use categories
