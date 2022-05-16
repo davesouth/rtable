@@ -6,6 +6,10 @@ RSpec.describe Card, type: :model do
   it_behaves_like 'domainable'
   it_behaves_like 'sluggable'
 
+  describe 'associations' do
+    it { is_expected.to embed_one :auth }
+  end
+
   describe 'schema' do
     it { is_expected.to have_field(:email).of_type(String) }
     it { is_expected.to have_field(:role).of_type(String).with_default_value_of('guest') }

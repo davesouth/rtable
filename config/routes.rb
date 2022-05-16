@@ -14,12 +14,18 @@ Rails.application.routes.draw do
     end
   end
 
+  # Root path redirects to tickets, for now
+  root to: redirect('/tickets')
+
   # Main resources
   resources :categories
   resources :cards, concerns: [:sluggable]
   resources :tickets, concerns: [:sluggable]
 
-  # Root path redirects to tickets, for now
-  root to: redirect('/tickets')
+  # Authentication helper paths
+  get '/login', to: 'sessions#new', as: 'new_session'
+  post '/login', to: 'sessions#create', as: 'create_session'
+  get '/auth/:user_id/:token', to: 'sessions#auth', as: 'auth_session'
+  delete '/logout', to: 'sessions#destroy', as: 'destroy_session'
 
 end

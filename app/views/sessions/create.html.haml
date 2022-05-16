@@ -1,0 +1,11 @@
+%h1 Sent!
+
+%p Click the login link we just emailed you.
+%p Remember, the link only works for 10 minutes, so don't wait around.
+%p= link_to 'Try again …', new_session_url(email: @user.email)
+
+- if Rails.env.development?
+  %p
+    Development link
+    %br
+    = link_to auth_session_url(@user.auth.params), auth_session_url(@user.auth.params)

@@ -6,6 +6,9 @@ class Card
 
   ROLES = %w[ owner staff guest blocked ].freeze
 
+  # Associations
+  embeds_one :auth
+
   # Primary email (auth and notification emails)
   field :email, type: String
   # Card role on system
