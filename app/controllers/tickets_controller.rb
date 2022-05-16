@@ -18,27 +18,13 @@ class TicketsController < DomainableController
   # def create
   # end
 
-  # Publish draft
   def publish
-    # Try to save updated params with publication time (now)
-    if @ticket.update(ticket_params.merge(published_at: Time.now.utc))
-      # If it saves, enumerate the next number for a given category
-      num = Ticket.where(category_id: @ticket.category_id).max(:num) + 1
-      # Then create a slug for that category and number
-      slug = @ticket.category.slug + '-' + num.to_s
-
-      # Force another validation check of new slug then proceed
-      respond_to do |format|
-        if @ticket.update(slug: slug, num: num)
-          format.html { redirect_to @ticket, notice: 'ticket successfully updated.' }
-        else
-          format.html { render :new, status: :unprocessable_entity }
-        end
-      end
-    else
-      respond_to do |format|
-        format.html { render :new, status: :unprocessable_entity }
-      end
+    respond_to do |format|
+      @ticket.publish!(ticket_params)
+      @ticket.slugify!
+      format.html { redirect_to @ticket, notice: 'ticket successfully updated.' }
+    rescue => exception
+      format.html { render :new, status: :unprocessable_entity }
     end
   end
 

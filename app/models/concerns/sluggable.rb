@@ -55,4 +55,11 @@ module Sluggable
     published_at.present?
   end
 
+  def publish!(params)
+    update!(params.merge(published_at: Time.now.utc))
+  end
+
+  def slugify!
+    update!(category.slugify_hash)
+  end
 end

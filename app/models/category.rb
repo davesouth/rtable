@@ -10,6 +10,7 @@ class Category
 
   # Associations
   has_many :cards
+  has_many :tickets
 
   # Schema
   field :name, type: String
@@ -30,4 +31,18 @@ class Category
     slug
   end
 
+  # Get next number in target collection
+  def next_num
+    send(self.kind).max(:num) + 1
+  end
+
+  # Create slug from target collection
+  def slugify
+    "#{slug}-#{next_num}"
+  end
+
+  # Helpful publication hash for target instance
+  def slugify_hash
+    { slug: slugify, num: next_num }
+  end
 end
