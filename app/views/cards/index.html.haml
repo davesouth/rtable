@@ -5,18 +5,16 @@
     %tr
       %th Name
       %th Slug
-      %th Num
-      %th
-      %th
+      %th Email
+      %th Role
 
   %tbody
     - @cards.each do |card|
       %tr
-        %td= card.name
+        %td= link_to card.name, card
         %td= card.slug
-        %td= card.num
-        %td= link_to 'Show', card
-        %td= link_to 'Edit', [:edit, card]
+        %td= card.email
+        %td= card.role
 
 %br
 

@@ -54,7 +54,7 @@ class CardsController < DomainableController
     end
 
     def card_params
-      params.require(:card).permit(:name, :category_id)
+      params.require(:card).permit(:name, :category_id, :email)
     end
 
 end

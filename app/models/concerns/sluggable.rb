@@ -21,7 +21,10 @@ module Sluggable
     scope :published, ->{ lt(published_at: Time.now.utc) }
 
     # Always validate slug
-    validates :slug, presence: true, uniqueness: { scope: 'domain_id', case_sensitive: false },format: { with: /\A[a-z0-9-]+\z/, message: 'only allows lowercase letters, numbers and hyphens' }
+    validates :slug,
+      presence: true,
+      uniqueness: { scope: 'domain_id', case_sensitive: false },
+      format: { with: /\A[a-z0-9-]+\z/, message: 'only allows lowercase letters, numbers and hyphens' }
 
     # Validations when record is published
     validates :name, presence: true, if: :published?

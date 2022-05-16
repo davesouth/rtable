@@ -3,9 +3,18 @@
 %p
   %b Name:
   = @card.name
+
 %p
   %b Slug:
   = @card.slug
+
+%p
+  %b Email:
+  = @card.email
+
+%p
+  %b Role:
+  = @card.role
 
 - if @card.category_id.present?
   %p
