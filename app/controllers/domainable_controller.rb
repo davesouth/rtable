@@ -1,4 +1,5 @@
 class DomainableController < ApplicationController
+
   # Scope current domain around request
   around_action :set_current_domain
 

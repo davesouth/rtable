@@ -1,5 +1,7 @@
-class CategoriesController < DomainableController
+class CategoriesController < AuthorizationController
   before_action :set_category, only: %i[ show edit update destroy ]
+
+  authorize_resource
 
   def index
     @categories = Category.all

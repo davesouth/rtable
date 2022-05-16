@@ -1,5 +1,7 @@
-class TicketsController < DomainableController
+class TicketsController < AuthorizationController
   before_action :set_ticket, only: %i[ show edit publish update destroy ]
+
+  authorize_resource
 
   def index
     @tickets = Ticket.published

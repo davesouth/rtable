@@ -1,5 +1,7 @@
-class CardsController < DomainableController
+class CardsController < AuthorizationController
   before_action :set_card, only: %i[ show edit publish update destroy ]
+
+  authorize_resource
 
   def index
     @cards = Card.published

@@ -40,6 +40,9 @@ gem 'bootstrap', '~> 5.1'
 # HAML template language [https://haml.info/docs.html]
 gem 'haml'
 
+# Authorization [https://github.com/CanCanCommunity/cancancan]
+gem 'cancancan'
+
 # Enable SASS support
 # gem 'sassc-rails'
 
