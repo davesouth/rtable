@@ -18,7 +18,7 @@ class SessionsController < DomainableController
     # Create a new auth token
     @user.create_auth
 
-    # SessionMailer.magic(email: @user.email, lnk: auth_session_url(@user.auth_params)).deliver_now
+    SessionMailer.magic(email: @user.email, lnk: auth_session_url(@user.auth.params)).deliver_now
 
     # Log request
     tally('Login request')

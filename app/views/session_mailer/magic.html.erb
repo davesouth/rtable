@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>
+      Welcome to <%= @domain.slug.downcase %>.spherus.io. Click this link to log in.
+    </p>
+    <p>
+      <a href='<%= @lnk %>'><%= @lnk %></a>
+    </p>
+    <p>
+      The link only works one time. From then on your browser will retain access unless you clear your browser's history.
+    </p>
+    <p>
+      For regular access, bookmark this link to the administration page.
+    </p>
+    <p>
+      <a href='https://<%= @domain.slug %>.spherus.io'>https://<%= @domain.slug %>.spherus.io</a>
+    </p>
+  </body>
+</html>
