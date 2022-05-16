@@ -16,6 +16,6 @@
         %td= card.email
         %td= card.role
 
-%br
 
-= link_to 'New card', [:new_card]
+%p= link_to 'New card', [:new_card]
+%p= button_to 'Logout', destroy_session_path, method: :delete
