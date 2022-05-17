@@ -3,24 +3,5 @@ class Card
   include Mongoid::Timestamps::Short
   include Domainable
   include Sluggable
-
-  ROLES = %w[ owner staff guest blocked ].freeze
-
-  # Associations
-  embeds_one :auth
-
-  # Primary email (auth and notification emails)
-  field :email, type: String
-  # Card role on system
-  field :role, type: String, default: 'guest'
-
-  validates :role, presence: true, inclusion: ROLES
-  validates :email,
-    allow_blank: true,
-    format: { with: URI::MailTo::EMAIL_REGEXP },
-    uniqueness: { scope: 'domain_id', case_sensitive: false }
-
-  # Quick lookup of primary email for authentication
-  index domain_id: 1, email: 1
-
+  include Authable
 end

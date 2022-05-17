@@ -1,8 +1,7 @@
 class DashboardController < AuthorizationController
 
-  authorize_resource
-
   def index
+    authorize! :read, Card
   end
 
 end

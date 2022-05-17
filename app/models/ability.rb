@@ -6,7 +6,6 @@ class Ability
   end
 
   def owner
-    can :manage, Dashboard
     can :manage, Category
     can :manage, Card
     can :manage, Ticket
