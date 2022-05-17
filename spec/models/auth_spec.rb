@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'support/domainable_specs'
 
 RSpec.describe Auth, type: :model do
   include_context 'current_domain'

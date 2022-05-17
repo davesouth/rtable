@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'support/domainable_specs'
 
 RSpec.describe Category, type: :model do
   it_behaves_like 'domainable'

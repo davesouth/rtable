@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'support/domainable_specs'
 require 'cancan/matchers'
 
 describe Ability do
