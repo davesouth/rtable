@@ -10,6 +10,7 @@ describe Ability do
   describe 'when owner' do
     let(:user) { Fabricate :card, role: 'owner' }
 
+    it { is_expected.to be_able_to :manage, Dashboard }
     it { is_expected.to be_able_to :manage, Category }
     it { is_expected.to be_able_to :manage, Card }
     it { is_expected.to be_able_to :manage, Ticket }

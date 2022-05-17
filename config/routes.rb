@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   end
 
   # Root path redirects to tickets, for now
-  root to: redirect('/tickets')
+  root 'dashboard#index'
 
   # Main resources
   resources :categories
