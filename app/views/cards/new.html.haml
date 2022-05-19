@@ -1,26 +1,5 @@
 %h1 New card
 
-= form_for [:publish, @card] do |f|
-  - if @card.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@card.errors.count, "error")} prohibited this card from being saved:"
-      %ul
-        - @card.errors.full_messages.each do |message|
-          %li= message
-
-  %p.field
-    = f.label :name
-    = f.text_field :name
-
-  %p.field
-    = f.label :category_id
-    = f.select :category_id, Category.cards.collect{ |c| [c.name, c.id] }, prompt: 'Select category…'
-
-  %p.field
-    = f.label :email
-    = f.email_field :email
-
-  %p.actions
-    = f.submit 'Save'
+= render 'form', card: @card
 
 = link_to 'Back', :cards
