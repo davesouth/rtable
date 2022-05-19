@@ -1,32 +1,31 @@
 class TicketsController < AuthorizationController
-  before_action :set_ticket, only: %i[ show edit publish update destroy ]
+  before_action :set_ticket, only: %i[ show edit update destroy ]
 
   authorize_resource
 
   def index
-    @tickets = Ticket.published
+    @tickets = Ticket.all
   end
 
   def show
   end
 
   def new
-    @ticket = Ticket.find_or_create_draft
+    @ticket = Ticket.new
   end
 
   def edit
   end
 
-  # def create
-  # end
+  def create
+    @ticket = Ticket.new(ticket_params)
 
-  def publish
     respond_to do |format|
-      @ticket.publish!(ticket_params)
-      @ticket.slugify!
-      format.html { redirect_to @ticket, notice: 'ticket successfully updated.' }
-    rescue => exception
-      format.html { render :new, status: :unprocessable_entity }
+      if @ticket.save
+        format.html { redirect_to [:edit, @ticket], notice: 'ticket successfully created.' }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+      end
     end
   end
 

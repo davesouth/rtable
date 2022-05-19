@@ -33,7 +33,7 @@ class Category
 
   # Get next number in target collection
   def next_num
-    send(self.kind).max(:num) + 1
+    @num ||= send(self.kind).max(:num).to_i + 1
   end
 
   # Create slug from target collection
@@ -41,8 +41,4 @@ class Category
     "#{slug}-#{next_num}"
   end
 
-  # Helpful publication hash for target instance
-  def slugify_hash
-    { slug: slugify, num: next_num }
-  end
 end

@@ -1,5 +1,18 @@
 %h1 New card
 
-= render 'form', card: @card
+= form_with model: @card do |f|
+  - display_form_errors(f.object)
+
+  %p.field
+    = f.label :category_id
+    = f.select :category_id, Category.cards.collect{ |c| [c.name, c.id] }, prompt: 'Select category…'
+
+  %p.field
+    = f.label :name
+    = f.text_field :name
+
+  %p.actions
+    = f.submit 'Save'
+
 
 = link_to 'Back', :cards

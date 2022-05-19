@@ -1,14 +1,16 @@
 %h1 New ticket
 
-= form_with model: ticket do |f|
+= form_with model: @ticket do |f|
   - display_form_errors(f.object)
+
+  %p.field
+    = f.label :category_id
+    = f.select :category_id, Category.tickets.collect{ |c| [c.name, c.id] }, prompt: 'Select category…'
 
   %p.field
     = f.label :name
     = f.text_field :name
-  %p.field
-    = f.label :category_id
-    = f.select :category_id, Category.tickets.collect{ |c| [c.name, c.id] }, prompt: 'Select category…'
+
   %p.actions
     = f.submit 'Save'
 

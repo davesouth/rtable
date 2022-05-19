@@ -1,33 +1,31 @@
 class CardsController < AuthorizationController
-  before_action :set_card, only: %i[ show edit publish update destroy ]
+  before_action :set_card, only: %i[ show edit update destroy ]
 
   authorize_resource
 
   def index
-    @cards = Card.published
+    @cards = Card.all
   end
 
   def show
   end
 
   def new
-    @card = Card.find_or_create_draft
+    @card = Card.new
   end
 
   def edit
   end
 
-  # Unused
-  # def create
-  # end
+  def create
+    @card = Card.new(card_params)
 
-  def publish
     respond_to do |format|
-      @card.publish!(card_params)
-      @card.slugify!
-      format.html { redirect_to @card, notice: 'card successfully updated.' }
-    rescue => exception
-      format.html { render :new, status: :unprocessable_entity }
+      if @card.save
+        format.html { redirect_to [:edit, @card], notice: 'card successfully created.' }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+      end
     end
   end
 
