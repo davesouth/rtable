@@ -1,5 +1,5 @@
 = form_with model: domain do |form|
-  - display_form_errors(f.object)
+  - display_form_errors(form.object)
 
   %p
     = form.label :slug, style: 'display: block'
