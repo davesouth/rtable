@@ -1,6 +1,6 @@
 class Domain
   include Mongoid::Document
-  include Mongoid::Timestamps::Short
+  include Mongoid::Timestamps
 
   # Thread safe class attribute to store current domain
   thread_mattr_accessor :current
