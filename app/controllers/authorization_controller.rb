@@ -28,6 +28,6 @@ class AuthorizationController < DomainableController
     # Save current page for redirect after login
     session['redirect_path'] = url_for(request.params)
     # Redirect to login page
-    redirect_to new_session_path
+    redirect_to(new_session_path) and return
   end
 end
