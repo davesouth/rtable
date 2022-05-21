@@ -1,6 +1,9 @@
 class User
   include Mongoid::Document
 
+  # Thread safe class attribute to store current user
+  thread_mattr_accessor :current
+
   # Allowed roles
   ROLES = %w[ owner staff blocked ].freeze
 

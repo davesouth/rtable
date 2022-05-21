@@ -5,7 +5,7 @@ class AuthorizationController < DomainableController
   check_authorization
 
   # Set current user for every request
-  before_action :require_user
+  around_action :set_current_user
 
   # Set current user card
   def current_user
@@ -13,13 +13,16 @@ class AuthorizationController < DomainableController
   end ; helper_method :current_user
 
   # Set current user or forward to login
-  def require_user
-    if current_user.blank?
-      # Save current page for redirect after login
-      session['redirect_path'] = url_for(request.params)
-      # Redirect to login page
-      redirect_to new_session_path
-    end
-  end ; private :require_user
+  def set_current_user
+    User.current = current_user
+    yield
+  rescue CanCan::AccessDenied
+    # Save current page for redirect after login
+    session['redirect_path'] = url_for(request.params)
+    # Redirect to login page
+    redirect_to new_session_path
+  ensure
+    User.current = nil
+  end ; private :set_current_user
 
 end
