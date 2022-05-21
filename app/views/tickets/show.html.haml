@@ -1,17 +1,24 @@
-%p#notice= notice
-
-%p
-  %b Name:
-  = @ticket.name
-%p
-  %b Slug:
-  = @ticket.slug
-
-- if @ticket.category_id.present?
-  %p
-    %b Category:
-    = @ticket.category.name
+= title @ticket.name
 
 = link_to 'Edit', [:edit, @ticket]
 \|
 = link_to 'Back', :tickets
+
+%p#notice= notice
+
+-# %p
+-#   %b= @ticket.category.name
+
+%h1
+  = @ticket.name
+  = "[#{@ticket.slug.upcase}]"
+
+- @ticket.memos.each do |memo|
+  %p= "#{memo.author.name} wrote:"
+  %p= memo.body
+
+= form_with model: [@ticket, Note] do |f|
+  %p= f.text_area :body
+  %p= f.submit 'Save'
+
+= debug @ticket

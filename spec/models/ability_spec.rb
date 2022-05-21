@@ -13,6 +13,7 @@ describe Ability do
     it { is_expected.to be_able_to :manage, Category }
     it { is_expected.to be_able_to :manage, Card }
     it { is_expected.to be_able_to :manage, Ticket }
+    it { is_expected.to be_able_to :manage, Memo }
   end
 
 

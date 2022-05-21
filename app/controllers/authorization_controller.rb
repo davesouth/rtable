@@ -16,11 +16,11 @@ class AuthorizationController < DomainableController
   def set_current_user
     User.current = current_user
     yield
-  rescue
-    # Save current page for redirect after login
-    session['redirect_path'] = url_for(request.params)
-    # Redirect to login page
-    redirect_to new_session_path
+  # rescue
+  #   # Save current page for redirect after login
+  #   session['redirect_path'] = url_for(request.params)
+  #   # Redirect to login page
+  #   redirect_to new_session_path
   ensure
     User.current = nil
   end ; private :set_current_user

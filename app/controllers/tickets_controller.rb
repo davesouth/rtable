@@ -22,7 +22,7 @@ class TicketsController < AuthorizationController
 
     respond_to do |format|
       if @ticket.save
-        format.html { redirect_to [:edit, @ticket], notice: 'ticket successfully created.' }
+        format.html { redirect_to @ticket, notice: 'ticket successfully created.' }
       else
         format.html { render :new, status: :unprocessable_entity }
       end

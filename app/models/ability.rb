@@ -9,6 +9,8 @@ class Ability
     can :manage, Category
     can :manage, Card
     can :manage, Ticket
+    can :manage, Memo
+    can :manage, Note
   end
 
   # def staff

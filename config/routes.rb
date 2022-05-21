@@ -15,7 +15,13 @@ Rails.application.routes.draw do
   # Main resources
   resources :categories
   resources :cards
-  resources :tickets
+
+  # Ticket resources (in depth)
+  resources :tickets do
+    # Ticket feeds
+    resources :notes, controller: 'memos', kind: 'note'
+  end
+
 
   # Authentication helper paths
   get '/login', to: 'sessions#new', as: 'new_session'
