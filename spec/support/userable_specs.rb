@@ -1,4 +1,4 @@
-shared_examples_for 'authable' do
+shared_examples_for 'userable' do
 
   describe 'associations' do
     it { is_expected.to embed_one :auth }

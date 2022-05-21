@@ -34,8 +34,8 @@ module Sluggable
 
   def set_slug
     if category_id.present?
-      self[:num] = category.next_num
-      self[:slug] = category.slugify
+      self.num = category.next_num
+      self.slug = category.slugify
     end
   end ; private :set_slug
 

@@ -1,13 +1,7 @@
 shared_examples_for 'domainable' do
 
   include_context 'current_domain'
-
   it { is_expected.to belong_to(:domain) }
-
-  # it { is_expected.to validate_presence_of(:domain_id) }
-
-    # it { is_expected.to have_field(:domain_id).of_type(Integer) }
-    # it { is_expected.to validate_numericality_of(:domain_id) }
 
 end
 

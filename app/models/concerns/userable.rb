@@ -1,4 +1,4 @@
-module Authable
+module Userable
   extend ActiveSupport::Concern
 
   included do
