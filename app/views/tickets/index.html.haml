@@ -6,14 +6,12 @@
       %th Name
       %th Slug
       %th
-      %th
 
   %tbody
     - @tickets.each do |ticket|
       %tr
-        %td= ticket.name
+        %td= link_to "#{ticket.slug} - #{ticket.name}", ticket
         %td= ticket.slug
-        %td= link_to 'Show', ticket
         %td= link_to 'Edit', [:edit, ticket]
 
 %p= link_to 'New Ticket', [:new_ticket]

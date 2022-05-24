@@ -43,8 +43,8 @@ gem 'haml'
 # Authorization [https://github.com/CanCanCommunity/cancancan]
 gem 'cancancan'
 
-# Enable SASS support
-# gem 'sassc-rails'
+# Enable SASS support [https://sass-lang.com/documentation/syntax]
+gem 'sassc-rails'
 
 # Software monitor
 gem 'sentry-ruby'
