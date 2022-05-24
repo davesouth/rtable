@@ -16,11 +16,18 @@ class AuthorizationController < DomainableController
   def set_current_user
     User.current = current_user
     yield
-  # rescue
-  #   # Save current page for redirect after login
-  #   session['redirect_path'] = url_for(request.params)
-  #   # Redirect to login page
-  #   redirect_to new_session_path
+  rescue CanCan::AccessDenied
+    # Save current page for redirect after login
+    session['redirect_path'] = url_for(request.params)
+
+    if current_user.blank?
+      # Please log in to access resource
+      render 'sessions/unauthorized', status: :unauthorized, layout: 'auth'
+    else
+      # Forbidden resource for logged in user
+      render 'sessions/forbidden', status: :forbidden, layout: 'auth'
+    end
+
   ensure
     User.current = nil
   end ; private :set_current_user

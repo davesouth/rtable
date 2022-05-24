@@ -1,0 +1,5 @@
+%h1 Whoops!
+%p Sorry, but the page you are trying to load is either unavailable or you are not authorized to access it.
+
+%p= link_to 'Go home', '/'
+%p= button_to 'Logout', destroy_session_path, method: :delete

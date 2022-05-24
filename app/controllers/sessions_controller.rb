@@ -1,4 +1,4 @@
-class SessionsController < DomainableController
+  class SessionsController < DomainableController
   before_action :redirect_logged_in_user, only: [:new, :auth]
 
   def new

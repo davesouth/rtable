@@ -1,0 +1,13 @@
+%h1 Please log in
+%p You need no log in to access this system.
+
+- if params[:error]
+  %p.error= params[:error]
+
+= form_with url: '/login', local: true do |f|
+
+  %p.field.email= email_field_tag :email, params[:email], placeholder: 'Login Email', autofocus: true, tabindex: 1, required: true
+
+  %p.field.email-confirm= email_field_tag :confirm_email, nil, placeholder: 'john@example.com', tabindex: 3
+
+  %p.actions= f.submit 'Sign In', tabindex: 2
