@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   # Root path redirects to tickets, for now
   root 'dashboard#index'
 
+  # Admin resources
+  resources :users
+
   # Main resources
   resources :categories
   resources :cards

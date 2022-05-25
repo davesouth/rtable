@@ -1,0 +1,17 @@
+%h1 Listing users
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Role
+      %th
+
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= link_to user.name, user
+        %td= user.role
+        %td= link_to 'Edit', [:edit, user]
+
+-# %p= link_to 'New Ticket', [:new_ticket]

@@ -10,7 +10,7 @@ class User
   # Associations
   embedded_in :card
 
-  # Generate nonce token
+  # Card's user role
   field :role, type: String
 
   # Ensure role is allowed

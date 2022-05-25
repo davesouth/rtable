@@ -11,6 +11,7 @@ class Ability
     can :manage, Ticket
     can :manage, Memo
     can :manage, Note
+    can :manage, User
   end
 
   # def staff
