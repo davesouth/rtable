@@ -1,12 +1,12 @@
-# Spherus deployment
-set :application, 'spherus'
+# RTable deployment
+set :application, 'rtable'
 
 # Repository
-set :repo_url, "https://#{ENV['CAP_GITHUB_TOKEN']}:@github.com/davesouth/spherus.git"
+set :repo_url, "https://#{ENV['CAP_GITHUB_TOKEN']}:@github.com/davesouth/rtable.git"
 set :branch, :main
 
 # Directories
-set :deploy_to, "/Users/ruby/spherus"
+set :deploy_to, "/Users/ruby/rtable"
 set :default_env, { path: "/usr/local/bin:$PATH" }
 append :linked_files, 'config/master.key'
 append :linked_dirs, 'log', 'public/system'

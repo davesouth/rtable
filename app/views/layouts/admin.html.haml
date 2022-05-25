@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title= content_for?(:title) ? "Spherus: #{yield(:title)}" : 'Spherus'
+    %title= content_for?(:title) ? "RTable: #{yield(:title)}" : 'RTable'
     %meta{ content: 'width=device-width,initial-scale=1', name: 'viewport' }
     = csrf_meta_tags
     = csp_meta_tag
@@ -13,7 +13,7 @@
       }
 
   %body
-    %h1= content_for?(:title) ? yield(:title) : 'Spherus'
+    %h1= content_for?(:title) ? yield(:title) : 'RTable'
 
     %p
       %mark= notice

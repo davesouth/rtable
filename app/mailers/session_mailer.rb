@@ -1,10 +1,10 @@
 class SessionMailer < ActionMailer::Base
-  default from: 'Spherus CRM <barney@spherus.apped.us>'
+  default from: 'RTable CRM <barney@rtable.apped.us>'
 
   def magic(email:, lnk:)
     @email, @lnk = email, lnk
     @domain = Domain.current
-    mail to: email, template_name: 'magic', subject: "Log into Spherus CRM"
+    mail to: email, template_name: 'magic', subject: "Log into RTable CRM"
   end
 
 end

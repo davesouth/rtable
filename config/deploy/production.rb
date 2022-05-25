@@ -2,7 +2,7 @@
 set :stage,  :production
 
 # Set target server in .ssh/config
-set :server, 'spherus.production'
+set :server, 'rtable.production'
 
 # Server roles
 server fetch(:server), roles: %w[web app db]

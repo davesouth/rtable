@@ -1,6 +1,6 @@
-# Spherus
+# Roundtable CRM (RTable)
 
-Spherus customer relationship manager (CRM) is a "sphere for us."
+The Roundtable Customer Relationship Manager.
 
 STATUS: JUST STARTED
 
@@ -19,4 +19,4 @@ We connect tickets with cards to create a graph of information.
 
 ## License
 
-Spherus is released under the [MIT License](https://opensource.org/licenses/MIT).
+RTable is released under the [MIT License](https://opensource.org/licenses/MIT).

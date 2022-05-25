@@ -1,7 +1,7 @@
 production:
   clients:
     default:
-      database: spherus_live
+      database: rtable_live
       hosts:
         - localhost:27017
       options:
@@ -14,14 +14,14 @@ production:
 development:
   clients:
     default:
-      database: spherus_dev
+      database: rtable_dev
       hosts:
         - localhost:27017
 
 test:
   clients:
     default:
-      database: spherus_test
+      database: rtable_test
       hosts:
         - localhost:27017
       options:
