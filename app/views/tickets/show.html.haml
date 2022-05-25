@@ -1,21 +1,20 @@
 = title @ticket.name
 
-= link_to 'Edit', [:edit, @ticket]
-\|
-= link_to 'Back', :tickets
-
 %p#notice= notice
-
--# %p
--#   %b= @ticket.category.name
 
 %h1
   = @ticket.name
-  = "[#{@ticket.slug.upcase}]"
 
-- @ticket.memos.each do |memo|
-  %p= "#{memo.author.name} wrote:"
-  %p= memo.body
+%p
+  %b= @ticket.slug.upcase
+  \|
+  = link_to @ticket.author.name, @ticket.author
+  created this on
+  = @ticket.created_at.to_s(:short)
+  \|
+  = link_to 'Edit', [:edit, @ticket]
+
+= render @ticket.memos
 
 = form_with model: [@ticket, Note] do |f|
   %p= f.text_area :body

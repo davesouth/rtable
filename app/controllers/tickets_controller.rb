@@ -30,6 +30,8 @@ class TicketsController < AuthorizationController
   end
 
   def update
+    @ticket.memos.build(ticket_params, TicketChange)
+
     respond_to do |format|
       if @ticket.update(ticket_params)
         format.html { redirect_to @ticket, notice: 'ticket successfully updated.' }

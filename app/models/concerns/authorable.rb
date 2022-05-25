@@ -3,7 +3,7 @@ module Authorable
 
   included do
     # Callback to set author
-    before_create :set_author
+    after_initialize :set_author
 
     # Author card
     belongs_to :author, class_name: 'Card', optional: true
