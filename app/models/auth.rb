@@ -14,7 +14,7 @@ class Auth
   end
 
   def validate(token_param)
-    token_param == token && Time.now.utc < expired_at
+    token_param == token && Time.current < expired_at
   end
 
 end

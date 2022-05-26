@@ -19,7 +19,7 @@ RSpec.describe Ticket, type: :model do
     end
 
     context 'when closed' do
-      subject { ticket.update(closed_at: Time.now.utc) ; ticket }
+      subject { ticket.update(closed_at: Time.current) ; ticket }
       it { expect(subject.state).to eq 'closed' }
       it { expect(subject.open?).to be false }
       it { expect(subject.closed?).to be true }

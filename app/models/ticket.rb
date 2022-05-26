@@ -15,7 +15,7 @@ class Ticket
 
   # Scope for open/closed tickets
   scope :open, ->{ where(closed_at: nil) }
-  scope :closed, ->{ lt(closed_at: Time.now.utc) }
+  scope :closed, ->{ lt(closed_at: Time.current) }
 
   # State?
   def state

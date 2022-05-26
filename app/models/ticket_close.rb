@@ -1,3 +1,3 @@
 class TicketClose < Memo
-  field :closed_at, type: Time, default: ->{ Time.now.utc }
+  field :closed_at, type: Time, default: ->{ Time.current }
 end

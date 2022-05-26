@@ -45,7 +45,7 @@ class TicketsController < AuthorizationController
     @ticket.memos.build({}, TicketClose)
 
     respond_to do |format|
-      if @ticket.update(closed_at: Time.now.utc)
+      if @ticket.update(closed_at: Time.current)
         format.html { redirect_to @ticket, notice: 'ticket successfully updated.' }
       else
         format.html { render :edit, status: :unprocessable_entity }
