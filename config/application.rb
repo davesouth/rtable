@@ -31,6 +31,10 @@ module Rtable
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
 
+    # We want to store everything as UTC
+    config.time_zone = 'UTC'
+
+
     # Don't generate system test files.
     config.generators.system_tests = nil
   end
