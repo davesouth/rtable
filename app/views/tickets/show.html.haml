@@ -16,7 +16,10 @@
   \|
   = link_to 'Edit', [:edit, @ticket]
   \|
-  = button_to 'Close', [:close, @ticket], method: :post
+  - if @ticket.open?
+    = button_to 'Close', [:close, @ticket], method: :post
+  - else
+    = button_to 'Reopen', [:reopen, @ticket], method: :post
 
 = render @ticket.memos
 
