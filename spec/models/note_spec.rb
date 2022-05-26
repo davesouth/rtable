@@ -1,4 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe Memo, type: :model do
+RSpec.describe Note, type: :model do
+  describe 'schema' do
+    it { is_expected.to have_field(:body).of_type(String) }
+  end
 end

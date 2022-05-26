@@ -1,5 +1,5 @@
 class TicketsController < AuthorizationController
-  before_action :set_ticket, only: %i[ show edit update destroy ]
+  before_action :set_ticket, only: %i[ show edit update close destroy ]
 
   authorize_resource
 
@@ -34,6 +34,18 @@ class TicketsController < AuthorizationController
 
     respond_to do |format|
       if @ticket.update(ticket_params)
+        format.html { redirect_to @ticket, notice: 'ticket successfully updated.' }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def close
+    @ticket.memos.build({}, TicketClose)
+
+    respond_to do |format|
+      if @ticket.update(closed_at: Time.now.utc)
         format.html { redirect_to @ticket, notice: 'ticket successfully updated.' }
       else
         format.html { render :edit, status: :unprocessable_entity }

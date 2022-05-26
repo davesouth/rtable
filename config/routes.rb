@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   # Ticket resources (in depth)
   resources :tickets do
+    post '/close', on: :member, to: 'tickets#close', as: 'close'
     # Ticket feeds
     resources :notes, controller: 'memos', kind: 'note'
   end

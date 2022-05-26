@@ -12,7 +12,11 @@
   created this on
   = @ticket.created_at.to_s(:short)
   \|
+  = @ticket.state
+  \|
   = link_to 'Edit', [:edit, @ticket]
+  \|
+  = button_to 'Close', [:close, @ticket], method: :post
 
 = render @ticket.memos
 
