@@ -8,7 +8,7 @@ private
   def set_changes
     if name != ticket.name
       self.old_name = ticket.name
-      self.published_at = Time.current
+      set_published_at
     end
   end
 

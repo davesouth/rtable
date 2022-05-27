@@ -13,4 +13,10 @@ class Memo
   scope :published, ->{ lt(published_at: Time.current).asc(:published_at) }
   scope :draft, ->{ unscoped.where(published_at: nil) }
 
+private
+
+  def set_published_at
+    self.published_at = Time.current
+  end
+
 end
