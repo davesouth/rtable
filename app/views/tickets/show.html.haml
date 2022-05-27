@@ -21,7 +21,7 @@
   - else
     = button_to 'Reopen', [:reopen, @ticket], method: :post
 
-= render @ticket.memos
+= render @ticket.memos.published
 
 = form_with model: [@ticket, Note] do |f|
   %p= f.text_area :body

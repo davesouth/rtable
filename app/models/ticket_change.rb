@@ -3,11 +3,13 @@ class TicketChange < Memo
   field :name, type: String
   field :old_name, type: String
 
-  private
+private
 
-    def set_changes
-      if name != ticket.name
-        self.old_name = ticket.name
-      end
+  def set_changes
+    if name != ticket.name
+      self.old_name = ticket.name
+      self.published_at = Time.current
     end
+  end
+
 end
