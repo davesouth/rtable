@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
+  concern :documentable do
+    resources :docs
+  end
+
   # Set subdomain admin route in credentials
   constraints subdomain: Rails.application.credentials.admin_slug do
     get '/', to: redirect('/domains')
@@ -25,7 +29,7 @@ Rails.application.routes.draw do
     post '/reopen', on: :member, to: 'tickets#reopen', as: 'reopen'
 
     # Ticket feed
-    resources :notes, controller: 'memos', kind: 'note'
+    resources :notes, concerns: [:documentable], controller: 'memos', kind: 'note'
   end
 
 

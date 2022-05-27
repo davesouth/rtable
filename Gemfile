@@ -40,13 +40,19 @@ gem 'bootstrap', '~> 5.1'
 # HAML template language [https://haml.info/docs.html]
 gem 'haml'
 
+# Carrierwave file uploader [https://github.com/carrierwaveuploader/carrierwave-mongoid]
+gem 'carrierwave-mongoid', require: 'carrierwave/mongoid'
+
+# Image manipulation library [https://github.com/minimagick/minimagick]
+gem 'mini_magick'
+
 # Authorization [https://github.com/CanCanCommunity/cancancan]
 gem 'cancancan'
 
 # Enable SASS support [https://sass-lang.com/documentation/syntax]
 gem 'sassc-rails'
 
-# Software monitor
+# Software monitor [https://docs.sentry.io/platforms/ruby/guides/rails/]
 gem 'sentry-ruby'
 gem 'sentry-rails'
 
