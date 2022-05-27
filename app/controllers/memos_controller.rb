@@ -33,7 +33,7 @@ class MemosController < AuthorizationController
 
   def update
     respond_to do |format|
-      if @memo.update(memo_params)
+      if @memo.update(memo_params.merge(published_at: Time.current))
         format.html { redirect_to @ticket, notice: 'memo successfully updated.' }
       else
         format.html { render :edit, status: :unprocessable_entity }

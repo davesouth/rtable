@@ -29,4 +29,17 @@ class Ticket
   def closed?
     closed_at.present?
   end
+
+
+  ## Memo logic
+  def draft_note
+    first_draft_by_author('Note') || self.memos.create({}, Note)
+  end
+
+private
+
+  def first_draft_by_author(type)
+    self.memos.draft.where('_type' => type, author_id: User.current.id).first
+  end
+
 end
