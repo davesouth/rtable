@@ -18,6 +18,6 @@
         %td= category.kind
         %td= link_to 'Show', category
         %td= link_to 'Edit', [:edit, category]
-        %td= button_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Delete', category, method: :delete, data: { confirm: 'Are you sure?' }
 
 %p= link_to 'New Category', [:new_category]
