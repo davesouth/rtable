@@ -8,7 +8,7 @@ set :branch, :main
 # Directories
 set :deploy_to, "/Users/ruby/rtable"
 set :default_env, { path: "/usr/local/bin:$PATH" }
-append :linked_files, 'config/master.key'
+append :linked_files, 'config/master.key', 'config/app.yml'
 append :linked_dirs, 'log', 'public/system'
 
 # Default value for :format is :airbrussh.
