@@ -7,3 +7,5 @@
 = link_to 'Back', :tickets
 
 %p= button_to 'Destroy', @ticket, method: :delete, data: { confirm: 'Are you sure?' }
+
+%p= link_to 'Delete', @ticket, method: :delete, data: { confirm: 'Are you sure?' }
