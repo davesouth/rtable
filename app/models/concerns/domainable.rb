@@ -2,11 +2,14 @@ module Domainable
   extend ActiveSupport::Concern
 
   included do
-    # Add belongs_to relationship for model.domain methods
-    belongs_to :domain
+    # Domain defined in app.yml with Integer ID
+    field :domain_id, type: Integer, default: ->{ Domain.current.id }
 
-    # Scope all model requests model by current domain id
+    # Default scope as domain id
     default_scope ->{ where(domain_id: Domain.current.id) }
+
+    # Ensure model has domain_id
+    validates :domain_id, presence: true, numericality: true
   end
 
 end

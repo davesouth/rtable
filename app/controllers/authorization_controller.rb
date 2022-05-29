@@ -1,4 +1,4 @@
-class AuthorizationController < DomainableController
+class AuthorizationController < ApplicationController
   include CanCan::ControllerAdditions
 
   # Always check authorization!

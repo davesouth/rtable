@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  include_context 'current_domain'
+  include_context 'test_domain'
 
   describe 'associations' do
     it { is_expected.to be_embedded_in(:card) }

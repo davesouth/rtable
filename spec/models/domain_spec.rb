@@ -2,21 +2,22 @@ require 'rails_helper'
 
 RSpec.describe Domain, type: :model do
 
-  describe 'schema' do
-    it { is_expected.to have_field(:name).of_type(String) }
-    it { is_expected.to have_field(:slug).of_type(String) }
+  describe 'Domain.domains' do
+    it { expect(Domain.domains).to match({ 'www.example.com': { id: 1, name: 'Test' } }) }
   end
 
-  describe 'indexes' do
-    it { is_expected.to have_index_for(slug: 1) }
+  describe 'Domain.find_by_host' do
+    subject { Domain.find_by_host('www.example.com') }
+    it { expect(subject).to be_an_instance_of Domain }
+    it { expect(subject.id).to eq 1 }
+    it { expect(subject.name).to eq 'Test' }
   end
 
-  describe 'validations' do
-    it { is_expected.to validate_presence_of(:name) }
-    it { is_expected.to validate_presence_of(:slug) }
-    it { is_expected.to validate_uniqueness_of(:slug) }
-    it { is_expected.to validate_format_of(:slug).to_allow('valid-slug-1') }
-    it { is_expected.to validate_format_of(:slug).not_to_allow('Invalid slug') }
+  describe 'Domain.find_by_host_id' do
+    subject { Domain.find_by_host_id(1) }
+    it { expect(subject).to be_an_instance_of Domain }
+    it { expect(subject.id).to eq 1 }
+    it { expect(subject.name).to eq 'Test' }
   end
 
 end

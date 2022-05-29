@@ -1,0 +1,32 @@
+# App.yml Example
+#
+# Save production block to server:app/shared/config/app.yml
+production:
+  domains:
+    # Physical domain to lookup on all requests
+    examplecrm.com:
+      # Domain ID should be an integer
+      id: 1
+      # Display name for site
+      name: Example CRM
+
+# Save development/test to development config/app.yml
+development:
+  domains:
+    # You can use localhost if you only have one tenant
+    # However, you can use any subdomain.crzy.me because
+    # *.crzy.me resolves to 127.0.0.1
+    example.crzy.me:
+      # The ID matches the production domain above
+      id: 1
+      # Repeat production name or not, it's up to you
+      name: Example CRM (dev)
+
+# Placeholder domain for testing
+test:
+  domains:
+    # All spec tests set domain to www.example.com
+    # Just go with it
+    www.example.com:
+      id: 1
+      name: Example CRM (test)

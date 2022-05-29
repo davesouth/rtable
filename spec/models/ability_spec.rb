@@ -2,7 +2,7 @@ require 'rails_helper'
 require 'cancan/matchers'
 
 describe Ability do
-  include_context 'current_domain'
+  include_context 'test_domain'
 
   subject(:ability) { Ability.new user }
   let(:user) { nil }
