@@ -69,7 +69,7 @@ class TicketsController < AuthorizationController
     @ticket.destroy
 
     respond_to do |format|
-      format.html { redirect_to :tickets, notice: 'ticket successfully destroyed.' }
+      format.html { redirect_to :tickets, notice: 'ticket successfully destroyed.', status: :see_other }
     end
   end
 

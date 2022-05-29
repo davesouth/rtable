@@ -43,7 +43,7 @@ class CategoriesController < AuthorizationController
     @category.destroy
 
     respond_to do |format|
-      format.html { redirect_to :categories, notice: 'Category successfully destroyed.' }
+      format.html { redirect_to :categories, notice: 'Category successfully destroyed.', status: :see_other }
     end
   end
 

@@ -10,3 +10,6 @@
   - if can? :index, User
     \|
     = link_to 'users', :users
+
+  \|
+  = link_to 'logout', destroy_session_path, data: { turbo_method: :delete }

@@ -43,7 +43,7 @@ class CardsController < AuthorizationController
     @card.destroy
 
     respond_to do |format|
-      format.html { redirect_to :cards, notice: 'card successfully destroyed.' }
+      format.html { redirect_to :cards, notice: 'card successfully destroyed.', status: :see_other }
     end
   end
 

@@ -6,4 +6,4 @@
 \|
 = link_to 'Back', :tickets
 
-%p= link_to 'Delete', @ticket, method: :delete, data: { confirm: 'Are you sure?' }
+%p= link_to 'Delete', @ticket, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }

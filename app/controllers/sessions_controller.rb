@@ -57,7 +57,7 @@
   def destroy
     tally('Logout')
     reset_session
-    redirect_to new_session_url
+    redirect_to new_session_url, status: :see_other
   end
 
   private
