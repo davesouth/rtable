@@ -25,4 +25,4 @@
 
 = form_with model: [@ticket, @ticket.draft_note] do |f|
   %p= f.text_area :body, required: true
-  %p= f.submit 'Save'
+  %p= f.submit 'Add note', name: 'publish', id: 'submit_publish'
