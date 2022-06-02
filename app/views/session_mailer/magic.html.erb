@@ -8,7 +8,7 @@
       Welcome to <%= @domain.name %>
     </p>
     <p>
-      <b>Click this link to log in:</b><br>
+      <b>Click this link, once, to log in:</b><br>
       <a href='<%= @lnk %>'><%= @lnk %></a>
     </p>
     <p>
@@ -18,7 +18,7 @@
       For regular access, bookmark this link to the administration page.
     </p>
     <p>
-      <a href='https://<%= @domain.slug %>.rtable.app'>https://<%= @domain.slug %>.rtable.app</a>
+      <a href='https://<%= @domain.host %>'>https://<%= @domain.host %></a>
     </p>
   </body>
 </html>
