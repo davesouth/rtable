@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Domain, type: :model do
 
   describe 'Domain.domains' do
-    it { expect(Domain.domains).to match({ 'www.example.com': { id: 1, name: 'Test' } }) }
+    it { expect(Domain.domains).to match({ 'www.example.com': { id: 1, name: 'Test', host: 'www.example.com' } }) }
   end
 
   describe 'Domain.find_by_host' do
