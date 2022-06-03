@@ -23,6 +23,6 @@
 
 = render @ticket.memos.published
 
-= form_with model: [@ticket, @ticket.draft_note] do |f|
-  %p= f.text_area :body, required: true
+= form_with model: [@ticket, @ticket.draft_note], data: { controller: 'autosave', autosave_target: 'form', autosave_delay_value: '500' } do |f|
+  %p= f.text_area :body, required: true, data: { action: 'keyup->autosave#save' }
   %p= f.submit 'Add note', name: 'publish', id: 'submit_publish'
