@@ -8,7 +8,7 @@ ruby '3.0.4'
 gem 'rails', '7.0.3'
 
 # Mongoid [https://www.mongodb.com/docs/mongoid/current/]
-gem "mongoid", "~> 7.4"
+gem "mongoid", "~> 7.4.0"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
