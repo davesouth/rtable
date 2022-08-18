@@ -5,18 +5,10 @@ Rails.application.routes.draw do
     resources :docs
   end
 
-  # Set subdomain admin route in credentials
-  constraints subdomain: Rails.application.credentials.admin_slug do
-    get '/', to: redirect('/domains')
-    resources :domains do
-      get 'delete', on: :member
-    end
-  end
-
   # Root path redirects to tickets, for now
   root 'dashboard#index'
 
-  # Admin resources
+  # Owner resources
   resources :users
 
   # Main resources
@@ -31,7 +23,6 @@ Rails.application.routes.draw do
     # Ticket feed
     resources :notes, concerns: [:documentable], controller: 'memos', kind: 'note'
   end
-
 
   # Authentication helper paths
   get '/login', to: 'sessions#new', as: 'new_session'
