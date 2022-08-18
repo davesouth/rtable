@@ -2,27 +2,29 @@
 
 %p#notice= notice
 
-%h1
-  = @ticket.name
+= turbo_frame_tag @ticket do
+  %h1
+    = @ticket.name
 
-%p
-  %b= @ticket.slug.upcase
-  \|
-  = link_to @ticket.author.name, @ticket.author
-  created this on
-  = @ticket.created_at.to_s(:short)
-  \|
-  = @ticket.state
-  \|
-  = link_to 'Edit', [:edit, @ticket]
-  \|
-  - if @ticket.open?
-    = button_to 'Close', [:close, @ticket], method: :post
-  - else
-    = button_to 'Reopen', [:reopen, @ticket], method: :post
+  %p
+    %b= @ticket.slug.upcase
+    \|
+    = link_to @ticket.author.name, @ticket.author
+    created this on
+    = @ticket.created_at.to_s(:short)
+    \|
+    = @ticket.state
+    \|
+    = link_to 'Edit', [:edit, @ticket]
+    \|
+    - if @ticket.open?
+      = button_to 'Close', [:close, @ticket], method: :post
+    - else
+      = button_to 'Reopen', [:reopen, @ticket], method: :post
 
 = render @ticket.memos.published
+= turbo_frame_tag 'new_note', src: new_ticket_note_path(@ticket), target: '_top'
 
-= form_with model: [@ticket, @ticket.draft_note], data: { controller: 'autosave', autosave_target: 'form', autosave_delay_value: '500' } do |f|
-  %p= f.text_area :body, required: true, data: { action: 'keyup->autosave#save' }
-  %p= f.submit 'Add note', name: 'publish', id: 'submit_publish'
+-# = form_with model: [@ticket, @ticket.draft_note], data: { controller: 'autosave', autosave_target: 'form', autosave_delay_value: '500' } do |f|
+-#   %p= f.text_area :body, required: true, data: { action: 'keyup->autosave#save' }
+-#   %p= f.submit 'Add note', name: 'publish', id: 'submit_publish'

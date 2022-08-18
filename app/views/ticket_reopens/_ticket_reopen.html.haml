@@ -1,1 +1,2 @@
-%p= "#{ticket_reopen.author.name} reopened this on #{ticket_reopen.published_at}".html_safe
+= turbo_frame_tag ticket_reopen do
+  %p= "#{ticket_reopen.author.name} reopened this on #{ticket_reopen.published_at}".html_safe

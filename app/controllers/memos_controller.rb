@@ -13,7 +13,7 @@ class MemosController < AuthorizationController
   end
 
   def new
-    @memo = @ticket.memos.build
+    @memo = @ticket.memos.build({}, @klass)
   end
 
   def edit
@@ -24,7 +24,7 @@ class MemosController < AuthorizationController
 
     respond_to do |format|
       if @memo.save
-        format.html { redirect_to @ticket, notice: 'memo successfully created.' }
+        format.html { redirect_to @ticket, status: :redirect, notice: 'memo successfully created.' }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -34,7 +34,7 @@ class MemosController < AuthorizationController
   def update
     respond_to do |format|
       if @memo.update(memo_params)
-        format.html { redirect_to @ticket, notice: 'memo successfully updated.' }
+        format.html { redirect_to @ticket, status: :redirect, notice: 'memo successfully updated.' }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -45,7 +45,7 @@ class MemosController < AuthorizationController
     @memo.destroy
 
     respond_to do |format|
-      format.html { redirect_to [@ticket, :memos], notice: 'memo successfully destroyed.' }
+      format.html { redirect_to [@ticket, :memos], status: :redirect, notice: 'memo successfully destroyed.' }
     end
   end
 

@@ -1,2 +1,3 @@
-%p= "#{note.author.name} wrote:"
-%p= note.body
+= turbo_frame_tag note do
+  %p= "#{note.author.name} wrote:"
+  %p= note.body

@@ -1,0 +1,4 @@
+= turbo_frame_tag 'new_note', target: '_top' do
+  = form_with model: [@ticket, @memo], data: { controller: 'autosave', autosave_target: 'form', autosave_delay_value: '500' } do |f|
+    %p= f.text_area :body, required: true, data: { action: 'keyup->autosave#save' }
+    %p= f.submit 'Add note', name: 'publish', id: 'submit_publish'
