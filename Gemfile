@@ -5,7 +5,7 @@ git_source(:github) { |repo| 'https://github.com/#{repo}.git' }
 ruby '3.0.4'
 
 # Ruby on Rails [https://api.rubyonrails.org]
-gem 'rails', '7.0.3'
+gem 'rails', '7.0.4'
 
 # Mongoid [https://www.mongodb.com/docs/mongoid/current/]
 gem "mongoid", "~> 7.4.0"
