@@ -1,5 +1,5 @@
 = form_with model: ticket do |f|
-  - display_form_errors(f.object)
+  = display_form_errors(f.object)
 
   %p.field
     = f.label :name
