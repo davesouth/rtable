@@ -23,8 +23,8 @@
       = button_to 'Reopen', [:reopen, @ticket], method: :post
 
 = render @ticket.memos.published
-= turbo_frame_tag 'new_note', src: new_ticket_note_path(@ticket), target: '_top'
+-# = turbo_frame_tag 'new_note', src: new_ticket_note_path(@ticket), target: '_top'
 
--# = form_with model: [@ticket, @ticket.draft_note], data: { controller: 'autosave', autosave_target: 'form', autosave_delay_value: '500' } do |f|
--#   %p= f.text_area :body, required: true, data: { action: 'keyup->autosave#save' }
--#   %p= f.submit 'Add note', name: 'publish', id: 'submit_publish'
+= form_with model: [@ticket, @ticket.draft_note], data: { controller: 'autosave', autosave_target: 'form', autosave_delay_value: '500' } do |f|
+  %p= f.text_area :body, required: true, data: { action: 'keyup->autosave#save' }
+  %p= f.submit 'Add note', name: 'publish', id: 'submit_publish'
