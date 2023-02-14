@@ -83,7 +83,6 @@ group :development do
   # Capistrano deployment [https://capistranorb.com]
   gem 'capistrano', require: false
   gem 'capistrano-rails', require: false
-  gem 'capistrano-rbenv', require: false
   gem 'capistrano-maintenance', require: false
   gem 'capistrano-bundler', require: false
   gem 'capistrano-passenger', require: false

@@ -10,9 +10,6 @@ install_plugin Capistrano::SCM::Git
 
 # Include tasks from other gems included in your Gemfile
 
-# https://github.com/capistrano/rbenv
-require 'capistrano/rbenv'
-
 # https://github.com/capistrano/bundler
 require 'capistrano/bundler'
 

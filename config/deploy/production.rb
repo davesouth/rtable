@@ -26,7 +26,7 @@ namespace :data do
   task :dump do
     on roles(:db) do |host|
       within release_path do
-        with rails_env: :production, path: '/usr/local/bin:$PATH' do
+        with rails_env: :production, path: '/opt/homebrew/bin:/usr/local/bin:$PATH' do
           execute :mkdir, "-p #{server_data_dir}"
           rake "data:dump DIR=#{server_data_dir}"
         end
