@@ -1,10 +1,10 @@
 class SessionMailer < ActionMailer::Base
-  default from: 'RTable CRM <barney@rtable.apped.us>'
+  # default from: 'john@example.com'
 
   def magic(email:, lnk:)
     @email, @lnk = email, lnk
     @domain = Domain.current
-    mail to: email, template_name: 'magic', subject: "Log into #{@domain.name}"
+    mail from: @domain.email, to: email, template_name: 'magic', subject: "Log into #{@domain.name}"
   end
 
 end

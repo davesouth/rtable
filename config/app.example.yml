@@ -9,6 +9,9 @@ production:
       id: 1
       # Display name for site
       name: Example CRM
+      # Default email "from" address
+      email: 'Example CRM <noreply@example.com>'
+
 
 # Save development/test to development config/app.yml
 development:
@@ -21,6 +24,8 @@ development:
       id: 1
       # Repeat production name or not, it's up to you
       name: Example CRM (dev)
+      # Default email "from" address
+      email: 'Example DEV <noreply@example.com>'
 
 # Placeholder domain for testing
 test:
@@ -30,3 +35,4 @@ test:
     www.example.com:
       id: 1
       name: Example CRM (test)
+      email: 'noreply@example.com'
