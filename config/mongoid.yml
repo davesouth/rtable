@@ -11,6 +11,13 @@ production:
         roles:
           - 'dbOwner'
 
+staging:
+  clients:
+    default:
+      database: rtable_staging
+      hosts:
+        - localhost:27017
+
 development:
   clients:
     default:
