@@ -94,7 +94,7 @@ private
 
   def confirm_data_files(files)
     files.each do |file|
-      abort "Abort: Cannot find source file #{file}" unless File.exists?(file)
+      abort "Abort: Cannot find source file #{file}" unless File.exist?(file)
     end
   end
 
