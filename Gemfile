@@ -4,6 +4,9 @@ git_source(:github) { |repo| 'https://github.com/#{repo}.git' }
 # Ruby [https://docs.ruby-lang.org/en/3.0/]
 ruby '3.2.2'
 
+# Security placeholder
+gem 'uri', '>= 0.12.2'
+
 # Ruby on Rails [https://api.rubyonrails.org]
 gem 'rails', '7.0.5.1'
 
