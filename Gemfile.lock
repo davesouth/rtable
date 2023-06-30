@@ -167,8 +167,9 @@ GEM
     minitest (5.18.1)
     mongo (2.19.0)
       bson (>= 4.14.1, < 5.0.0)
-    mongoid (8.0.4)
+    mongoid (8.1.0)
       activemodel (>= 5.1, < 7.1, != 7.0.0)
+      concurrent-ruby (>= 1.0.5, < 2.0)
       mongo (>= 2.18.0, < 3.0.0)
       ruby2_keywords (~> 0.0.5)
     mongoid-compatibility (0.6.0)
@@ -329,7 +330,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   mini_magick
-  mongoid (~> 8.0.3)
+  mongoid (~> 8.1.0)
   mongoid-rspec
   puma (~> 5.0)
   rails (= 7.0.6)
