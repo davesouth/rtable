@@ -22,3 +22,6 @@
 
 # Ignore application site configurations
 /config/app.yml
+
+# Ignore mongoid db configurations
+/config/mongoid.yml

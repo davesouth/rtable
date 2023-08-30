@@ -1,9 +1,15 @@
 production:
   clients:
     default:
-      database: rtable_live
+      database: rtable_production
       hosts:
         - localhost:27017
+      options:
+        auth_source: admin
+        user: <%= Rails.application.credentials.mongoid_user %>
+        password: <%= Rails.application.credentials.mongoid_pass %>
+        roles:
+          - 'dbOwner'
 
 staging:
   clients:
