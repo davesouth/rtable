@@ -13,7 +13,7 @@ namespace :data do
   server_data_dir = shared_path.join('data')
   local_data_dir = 'db/data'
 
-  desc 'Synchronize production data with local environment'
+  desc 'Synchronize staging data with local environment'
   task :sync do
     run_locally do
       Rake::Task['data:dump'].invoke
@@ -22,11 +22,11 @@ namespace :data do
     end
   end
 
-  desc 'Dump production database on server'
+  desc 'Dump staging database on server'
   task :dump do
     on roles(:db) do |host|
       within release_path do
-        with rails_env: :production, path: '/opt/homebrew/bin:/usr/local/bin:$PATH' do
+        with rails_env: :staging, path: '/opt/homebrew/bin:/usr/local/bin:$PATH' do
           execute :mkdir, "-p #{server_data_dir}"
           rake "data:dump DIR=#{server_data_dir}"
         end
@@ -34,7 +34,7 @@ namespace :data do
     end
   end
 
-  desc 'Download production database to local environment'
+  desc 'Download staging database to local environment'
   task :download do
     run_locally do
       system "rsync -rtvh #{server_ssh_name}:#{server_data_dir}/ #{local_data_dir}"
@@ -51,7 +51,7 @@ namespace :data do
 end
 
 # Autorun data tasks
-desc 'Synchronize production data with local environment'
+desc 'Synchronize staging data with local environment'
 task :data do
   run_locally do
     Rake::Task['data:dump'].invoke
