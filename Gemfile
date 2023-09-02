@@ -82,7 +82,9 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem 'spring'
+end
 
+group :development, :staging do
   # Capistrano deployment [https://capistranorb.com]
   gem 'capistrano', require: false
   gem 'capistrano-rails', require: false
@@ -93,7 +95,6 @@ group :development do
   # SSH gems needed for ed25519 ssh keys in capistrano deployments
   gem 'ed25519', require: false
   gem 'bcrypt_pbkdf', require: false
-
 end
 
 group :test do
