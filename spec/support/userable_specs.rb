@@ -19,6 +19,12 @@ shared_examples_for 'userable' do
     it { is_expected.to have_index_for(domain_id: 1, email: 1) }
   end
 
+  describe 'normalize email' do
+    let(:card) { Fabricate :card, email: 'John@Example.com' }
+    it { expect(card.email).to eq 'john@example.com' }
+  end
+
+
   describe 'role method' do
     let(:card) { Fabricate :card }
     it { expect(card.role).to eq 'guest' }

@@ -70,7 +70,7 @@
 
     def sanitized_email
       if params[:email].match(URI::MailTo::EMAIL_REGEXP)
-        return params[:email]
+        return params[:email].strip.downcase
       else
         raise ArgumentError, 'Invalid email'
       end

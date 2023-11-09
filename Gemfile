@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-git_source(:github) { |repo| 'https://github.com/#{repo}.git' }
 
 # Ruby [https://docs.ruby-lang.org/en/3.0/]
 ruby '3.2.2'
@@ -8,7 +7,7 @@ ruby '3.2.2'
 gem 'uri', '>= 0.12.2'
 
 # Ruby on Rails [https://api.rubyonrails.org]
-gem 'rails', '7.0.8'
+gem 'rails', '7.1.1'
 
 # Mongoid [https://www.mongodb.com/docs/mongoid/current/]
 gem 'mongoid', '~> 8.1.3'
@@ -61,7 +60,7 @@ gem 'sentry-rails'
 
 group :development, :test do
   # Rspec works best for Mongoid [https://github.com/rspec/rspec-rails]
-  gem 'rspec-rails', '6.0.0.rc1'
+  gem 'rspec-rails', '~> 6.0.0'
 
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[ mri mingw x64_mingw ]
@@ -72,7 +71,7 @@ group :development do
   gem 'web-console'
 
   # Use the Puma web server [https://github.com/puma/puma]
-  gem 'puma', '~> 5.0'
+  gem 'puma', '~> 6.0'
 
   # HAML template generators [https://github.com/haml/haml-rails]
   gem 'haml-rails'
