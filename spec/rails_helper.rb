@@ -28,8 +28,8 @@ RSpec.configure do |config|
   # Remove this line to enable support for ActiveRecord
   config.use_active_record = false
 
-  # Purge mongoid collections before each spec
-  config.before { Mongoid.purge! }
+  # # Purge mongoid collections before each spec
+  # config.before(:each) { Mongoid.purge! }
 
   # Include additional mongoid specific matchers
   config.include Mongoid::Matchers, type: :model

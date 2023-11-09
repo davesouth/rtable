@@ -2,7 +2,6 @@ module Userable
   extend ActiveSupport::Concern
 
   included do
-    # before_validation :strip_email
 
     # Associations
     embeds_one :user
@@ -25,15 +24,5 @@ module Userable
   def role
     has_user? ? user.role : 'guest'
   end
-
-  def email=(email_input)
-    self[:email] = email_input.strip.downcase
-  end
-
-  # def strip_email
-  #   if email.present?
-  #     self.email = email.strip.downcase
-  #   end
-  # end ; private :strip_email
 
 end
