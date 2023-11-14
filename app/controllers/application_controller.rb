@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  protect_from_forgery with: :reset_session
 
   # Scope current domain
   around_action :scope_current
