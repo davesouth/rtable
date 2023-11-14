@@ -10,6 +10,9 @@ gem 'uri', '>= 0.12.2'
 # Ruby on Rails [https://api.rubyonrails.org]
 gem 'rails', '7.1.2'
 
+# Downgrade Rack
+gem 'rack', '~> 2.2.0'
+
 # Mongoid [https://www.mongodb.com/docs/mongoid/current/]
 gem 'mongoid', '~> 8.1.3'
 
