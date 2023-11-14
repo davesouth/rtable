@@ -66,5 +66,5 @@ Rails.application.configure do
   config.action_controller.raise_on_missing_callback_actions = true
 
   # Local testing via localhost resolving domain
-  config.hosts << /.*crzy.me/
+  config.hosts << /.*\.crzy\.me/
 end

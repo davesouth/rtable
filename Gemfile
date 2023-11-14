@@ -10,6 +10,10 @@ gem 'uri', '>= 0.12.2'
 # Ruby on Rails [https://api.rubyonrails.org]
 gem 'rails', '7.1.2'
 
+# Downgrade Rack until auth problems are solved
+# https://stackoverflow.com/questions/77283909/bumping-to-rails-7-1-broke-devise-authentication-but-not-on-development
+gem 'rack', '~> 2.2.8'
+
 # Mongoid [https://www.mongodb.com/docs/mongoid/current/]
 gem 'mongoid', '~> 8.1.3'
 
