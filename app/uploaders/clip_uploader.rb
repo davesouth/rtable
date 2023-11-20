@@ -4,7 +4,7 @@ class ClipUploader < CarrierWave::Uploader::Base
   storage :file
 
   def store_dir
-    "vault/clips/#{model.id.generation_time.to_s(:path)}/#{model.id}"
+    "vault/clips/#{model.id.generation_time.to_formatted_s(:path)}/#{model.id}"
   end
 
   def cache_dir

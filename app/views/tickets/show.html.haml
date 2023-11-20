@@ -11,7 +11,7 @@
     \|
     = link_to @ticket.author.name, @ticket.author
     created this on
-    = @ticket.created_at.to_s(:short)
+    = @ticket.created_at.to_formatted_s(:short)
     \|
     = @ticket.state
     \|
