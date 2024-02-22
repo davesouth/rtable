@@ -8,7 +8,7 @@ ruby '3.2.3'
 gem 'uri', '>= 0.12.2'
 
 # Ruby on Rails [https://api.rubyonrails.org]
-gem 'rails', '7.1.3'
+gem 'rails', '7.1.3.2'
 
 # Mongoid [https://www.mongodb.com/docs/mongoid/current/]
 gem 'mongoid', '~> 8.1.3'
