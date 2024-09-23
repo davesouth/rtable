@@ -11,7 +11,7 @@ gem 'uri', '>= 0.12.2'
 gem 'rails', '7.1.4'
 
 # Mongoid [https://www.mongodb.com/docs/mongoid/current/]
-gem 'mongoid', '~> 8.1.3'
+gem 'mongoid', '~> 8.1.6'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
