@@ -11,7 +11,7 @@ gem 'uri', '>= 0.12.2'
 gem 'rails', '7.1.4'
 
 # Mongoid [https://www.mongodb.com/docs/mongoid/current/]
-gem 'mongoid', '~> 8.1.6'
+gem 'mongoid', '~> 9.0.2'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
@@ -44,7 +44,7 @@ gem 'bootstrap', '~> 5.1'
 gem 'haml'
 
 # Carrierwave file uploader [https://github.com/carrierwaveuploader/carrierwave-mongoid]
-gem 'carrierwave-mongoid', require: 'carrierwave/mongoid'
+gem 'carrierwave-mongoid', require: 'carrierwave/mongoid', git: 'https://github.com/davesouth/carrierwave-mongoid'
 
 # Image manipulation library [https://github.com/minimagick/minimagick]
 gem 'mini_magick'
