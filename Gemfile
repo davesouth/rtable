@@ -2,13 +2,16 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| 'https://github.com/#{repo}.git' }
 
 # Ruby [https://docs.ruby-lang.org/en/3.0/]
-ruby '3.2.5'
+ruby '3.3.5'
 
 # Security placeholder
 gem 'uri', '>= 0.12.2'
 
 # Ruby on Rails [https://api.rubyonrails.org]
 gem 'rails', '7.1.4'
+
+# Ruby Logger [https://github.com/ruby/logger] (Deprecated in Ruby 3.5.0)
+gem 'logger'
 
 # Mongoid [https://www.mongodb.com/docs/mongoid/current/]
 gem 'mongoid', '~> 9.0.2'
