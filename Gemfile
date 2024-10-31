@@ -8,7 +8,7 @@ ruby '3.3.5'
 gem 'uri', '>= 0.12.2'
 
 # Ruby on Rails [https://api.rubyonrails.org]
-gem 'rails', '7.2.1.2'
+gem 'rails', '7.2.2'
 
 # Ruby Logger [https://github.com/ruby/logger] (Deprecated in Ruby 3.5.0)
 gem 'logger'
