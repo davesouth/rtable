@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| 'https://github.com/#{repo}.git' }
 
 # Ruby [https://docs.ruby-lang.org/en/3.0/]
-ruby '3.3.5'
+ruby '3.3.6'
 
 # Security placeholder
 gem 'uri', '>= 0.12.2'
